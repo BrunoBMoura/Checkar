@@ -1,0 +1,12 @@
+angular2 - https://www.youtube.com/watch?v=-zW1zHqsdyc 
+angular2 - https://scotch.io/tutorials/angular-2-classes-with-ngclass-and-ngstyle
+ionic - https://www.youtube.com/watch?v=ilM8YorL_jI
+ionic - https://www.youtube.com/watch?v=qdeD9rYlBU4
+ionic - https://forum.ionicframework.com/t/customize-ionicons-color/1456
+
+https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
+
+graças a deus:
+https://github.com/bbarreto/sinesp-api
+https://www.npmjs.com/package/sinesp-nodejs
+https://github.com/cemerick/jsdifflib
