@@ -1,0 +1,7 @@
+from sinesp_client import SinespClient
+sc = SinespClient()
+result = sc.search('MHZ4119')
+print(result)
+
+# <?xml version="1.0" encoding="utf-8" standalone="yes" ?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ><soap:Header><b>iPhone</b><j></j><i>-35.2374101796688</i><c>iPhone OS</c><e>SinespCidadao</e><f>10.0.0.110</f><g>c537ea2aa9737347163b7de2f0d592790be0212b</g><k>a4159ef2-1b36-4b6a-a049-5c8195e54845</k><d>10.0.1</d><h>-5.85973471984285</h><l>2016-09-17 10:26:19</l></soap:Header><soap:Body><webs:getStatus xmlns:webs="http://soap.ws.placa.service.sinesp.serpro.gov.br/"><a>CHB4020</a></webs:getStatus></soap:Body></soap:Envelope>
+# <?xml version='1.0' encoding='utf-8' standalone='yes' ?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ><soap:Header><b>iPhone</b><j><j/><i>-35.2374101796688</i><c>iPhone OS</c><e>SinespCidadao</e><f>10.0.0.110</f><g>c537ea2aa9737347163b7de2f0d592790be0212b</g><k>a4159ef2-1b36-4b6a-a049-5c8195e54845</k><d>10.0.1</d><h>-5.85973471984285</h><l>2016-09-17 10:26:19</l></soap:Header><soap:Body><webs:getStatus xmlns:webs="http://soap.ws.placa.service.sinesp.serpro.gov.br/"><a>GHB4020</a></webs:getStatus></soap:Body></soap:Envelope>
