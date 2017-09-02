@@ -1,25 +1,28 @@
-<ion-header height='80px'>
-  <ion-navbar color='dark'>
-    <ion-title font-color='yellow'><ion-icon name='md-car' color = 'yellow'></ion-icon> Checkar </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <h2>Seja bem-vindo ao checkar!</h2>
-
-  <ion-list>
+<ion-header>
+    <ion-navbar color = 'dark'>
+      <ion-title>
+        <div text-center>
+          <ion-icon name='md-car' color = 'yellow'></ion-icon>
+         <strong><font color="yellow">Checkcar</font></strong>
+        </div>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <form (ngSubmit) = "Search(placa)">
     <ion-item>
-      <ion-label floating>Placa</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-label>
+        Placa do Veículo
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="placa" name="placa" ></ion-input>
     </ion-item>
-    <ion-card color='dark'>
-      <ion-card-header>
-      Modelo:
-      </ion-card-header>
-      <ion-card-content>
-      As informações do carro aparecem aqui
-      </ion-card-content>
-    </ion-card>
-    
-    </ion-list>
-</ion-content>
+  
+    <div padding>
+      <button ion-button type="submit" class="button button-block button-positive"  color = dark >Procurar</button>
+    </div>
+    </form>
+  
+  </ion-content>
+  
