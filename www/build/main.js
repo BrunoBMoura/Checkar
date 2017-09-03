@@ -68,7 +68,7 @@ var TabsPage = (function () {
     return TabsPage;
 }());
 TabsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle = "Settings" tabIcon = "cog"></ion-tab>  \n</ion-tabs>\n'/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/tabs/tabs.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/victorlucio/Documents/GitHub/Checkar/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle = "Settings" tabIcon = "cog"></ion-tab>  \n</ion-tabs>\n'/*ion-inline-end:"/Users/victorlucio/Documents/GitHub/Checkar/src/pages/tabs/tabs.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], TabsPage);
@@ -103,7 +103,7 @@ var AboutPage = (function () {
 }());
 AboutPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-about',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/about/about.html"*/'<ion-header height=\'80px\'>\n  <ion-navbar color=\'dark\'>\n    <ion-title>\n      Sobre\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n	\n	<ion-list>\n			<ion-item>\n					<strong> Checkar </strong>	\n			</ion-item>	\n			<ion-item>\n					<strong> Versão: </strong> 1.0.0\n			</ion-item>		\n			<ion-item>	\n				<strong> Cepo de Madeira: </strong> Beeem duro				\n			</ion-item>\n			<ion-item>\n				<strong>Desenvolvido por:</strong>\n					<ion-item>\n						<br/>Bruno Bernardo de Moura<br/>\n						<br/>Gabriel Borin <br/>\n						<br/>Rafael Lëinio<br/>\n						<br/>Ricardo Elizeu Neto (s2)<br/>\n						<br/>Thiago Akinori Sato <br/>\n						<br/>Victor Lucio<br/>\n					</ion-item>\n			</ion-item>\n		</ion-list>\n	\n	\n	\n	\n	\n\n</ion-content>\n'/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/about/about.html"*/
+        selector: 'page-about',template:/*ion-inline-start:"/Users/victorlucio/Documents/GitHub/Checkar/src/pages/about/about.html"*/'<ion-header height=\'80px\'>\n  <ion-navbar color=\'dark\'>\n    <ion-title>\n      Sobre\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n	\n	<ion-list>\n			<ion-item>\n					<strong> Checkar </strong>	\n			</ion-item>	\n			<ion-item>\n					<strong> Versão: </strong> 1.0.0\n			</ion-item>		\n			<ion-item>	\n				<strong> Cepo de Madeira: </strong> Beeem duro				\n			</ion-item>\n			<ion-item>\n				<strong>Desenvolvido por:</strong>\n					<ion-item>\n						<br/>Bruno Bernardo de Moura<br/>\n						<br/>Gabriel Borin <br/>\n						<br/>Rafael Lëinio<br/>\n						<br/>Ricardo Elizeu Neto (s2)<br/>\n						<br/>Thiago Akinori Sato <br/>\n						<br/>Victor Lucio<br/>\n					</ion-item>\n			</ion-item>\n		</ion-list>\n	\n	\n	\n	\n	\n\n</ion-content>\n'/*ion-inline-end:"/Users/victorlucio/Documents/GitHub/Checkar/src/pages/about/about.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], AboutPage);
@@ -138,7 +138,7 @@ var ContactPage = (function () {
 }());
 ContactPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-contact',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/contact/contact.html"*/'<ion-header height=\'80px\'>\n  <ion-navbar color=\'dark\'>\n    <ion-title>\n      Contact\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Follow us on Twitter</ion-list-header>\n    <ion-item>\n      <ion-icon name="ionic" item-left></ion-icon>\n      @ionicframework\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/contact/contact.html"*/
+        selector: 'page-contact',template:/*ion-inline-start:"/Users/victorlucio/Documents/GitHub/Checkar/src/pages/contact/contact.html"*/'<ion-header height=\'80px\'>\n  <ion-navbar color=\'dark\'>\n    <ion-title>\n      Contact\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Follow us on Twitter</ion-list-header>\n    <ion-item>\n      <ion-icon name="ionic" item-left></ion-icon>\n      @ionicframework\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/victorlucio/Documents/GitHub/Checkar/src/pages/contact/contact.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], ContactPage);
@@ -213,7 +213,7 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar color = \'dark\'>\n      <ion-title>\n        <div text-center>\n          <ion-icon name=\'md-car\' color = \'yellow\'></ion-icon>\n         <strong><font color="yellow">Checkcar</font></strong>\n        </div>\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  \n  <ion-content padding>\n    <form (ngSubmit) = "Search(placa)">\n    <ion-item>\n      <ion-label>\n        Placa do Veículo\n      </ion-label>\n      <ion-input type="text" [(ngModel)]="placa" name="placa" ></ion-input>\n    </ion-item>\n  \n    <div padding>\n      <button ion-button type="submit" class="button button-block button-positive"  color = dark >Procurar</button>\n    </div>\n    </form>\n  \n  </ion-content>\n  '/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/victorlucio/Documents/GitHub/Checkar/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar color = \'dark\'>\n      <ion-title>\n        <div text-center>\n          <ion-icon name=\'md-car\' color = \'yellow\'></ion-icon>\n         <strong><font color="yellow">Checkcar</font></strong>\n        </div>\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  \n  <ion-content padding>\n    <form (ngSubmit) = "Search(placa)">\n    <ion-item>\n      <ion-label>\n        Placa do Veículo\n      </ion-label>\n      <ion-input type="text" [(ngModel)]="placa" name="placa" ></ion-input>\n    </ion-item>\n  \n    <div padding>\n      <button ion-button type="submit" class="button button-block button-positive"  color = dark >Procurar</button>\n    </div>\n    </form>\n  \n  </ion-content>\n  '/*ion-inline-end:"/Users/victorlucio/Documents/GitHub/Checkar/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]])
 ], HomePage);
@@ -271,7 +271,7 @@ var ShowCarPage = (function () {
 }());
 ShowCarPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-showCar',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/showCar/showCar.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Informações\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n      \n<ion-content padding>\n\n    <ion-grid *ngIf="infoTotal">\n      <ion-list>\n\n        <ion-item>\n            <strong> Modelo: </strong> {{infoTotal.marca}} \n        </ion-item>\n        <ion-item>\n            <strong> Ano: </strong> {{infoTotal.ano}}\n        </ion-item>\n        <ion-item>\n            <strong> Placa: </strong> {{infoTotal.placa}}\n        </ion-item>\n        <ion-item>\n                <strong> Preço: </strong> {{infoTotal.price}}\n        </ion-item>\n    \n    \n    </ion-list>\n    </ion-grid>\n      \n</ion-content>'/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/showCar/showCar.html"*/
+        selector: 'page-showCar',template:/*ion-inline-start:"/Users/victorlucio/Documents/GitHub/Checkar/src/pages/showCar/showCar.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Informações\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n      \n<ion-content padding>\n\n    <ion-grid *ngIf="infoTotal">\n      <ion-list>\n\n        <ion-item>\n            <strong> Modelo: </strong> {{infoTotal.marca}} \n        </ion-item>\n        <ion-item>\n            <strong> Ano: </strong> {{infoTotal.ano}}\n        </ion-item>\n        <ion-item>\n            <strong> Placa: </strong> {{infoTotal.placa}}\n        </ion-item>\n        <ion-item>\n                <strong> Preço: </strong> {{infoTotal.price}}\n        </ion-item>\n    \n    \n    </ion-list>\n    </ion-grid>\n      \n</ion-content>'/*ion-inline-end:"/Users/victorlucio/Documents/GitHub/Checkar/src/pages/showCar/showCar.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_carInfo_carInfo__["a" /* CarInfoProvider */]])
 ], ShowCarPage);
@@ -347,7 +347,7 @@ var SettingsPage = (function () {
 }());
 SettingsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-settings',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/settings/settings.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title> Settings </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <h2>Configurações</h2>\n  \n\n  </ion-content>\n  '/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/settings/settings.html"*/
+        selector: 'page-settings',template:/*ion-inline-start:"/Users/victorlucio/Documents/GitHub/Checkar/src/pages/settings/settings.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title> Settings </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <h2>Configurações</h2>\n  \n\n  </ion-content>\n  '/*ion-inline-end:"/Users/victorlucio/Documents/GitHub/Checkar/src/pages/settings/settings.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], SettingsPage);
@@ -490,7 +490,7 @@ var MyApp = (function () {
     return MyApp;
 }());
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/app/app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/victorlucio/Documents/GitHub/Checkar/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/victorlucio/Documents/GitHub/Checkar/src/app/app.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
