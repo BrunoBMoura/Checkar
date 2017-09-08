@@ -32,7 +32,7 @@ def get_task(placa):
 
 	#----------------Achando o modelo
 	response = urllib.request.urlopen("http://fipeapi.appspot.com/api/1/carros/veiculos/"+str(idMarca)+".json") #busca todos os modelos daquela marca
-	data = json.load(response)
+	data = json.loads(response.read().decode())
 	
 	listaModelos = {}
 	for instance2 in data: #criando lista de modelos daquela marca
