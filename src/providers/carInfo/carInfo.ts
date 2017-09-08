@@ -8,7 +8,7 @@ export class CarInfoProvider {
 
   constructor(public http: Http) {
     console.log('Hello CarInfoProvider Provider');
-    this.url = 'https://checkcarapp.herokuapp.com';
+    this.url = 'http://flask-env.f7dpsf3jcd.us-east-1.elasticbeanstalk.com';
   }
 
   getInfo(placaCarro){
