@@ -1,0 +1,14 @@
+beautifulsoup4==4.6.0
+bs4==0.0.1
+click==6.7
+Flask==0.12.2
+html5lib==0.999999999
+itsdangerous==0.24
+Jinja2==2.9.6
+MarkupSafe==1.0
+requests==2.8.1
+sinesp-client==1.8
+six==1.10.0
+Unidecode==0.4.21
+webencodings==0.5.1
+Werkzeug==0.12.2
