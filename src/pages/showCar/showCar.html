@@ -9,23 +9,25 @@
 <ion-content padding>
 
     <ion-grid *ngIf="infoTotal">
-      <ion-list>
-
-        <ion-item>
-            <strong> Modelo: </strong> {{infoTotal.marca}} 
-        </ion-item>
-        <ion-item>
-            <strong> Ano: </strong> {{infoTotal.ano}}
-        </ion-item>
-        <ion-item>
-            <strong> Placa: </strong> {{infoTotal.placa}}
-        </ion-item>
-        <ion-item>
-                <strong> Preço: </strong> {{infoTotal.price}}
-        </ion-item>
-    
-    
-    </ion-list>
+        <ion-list>
+            <ion-item>
+                <strong> Modelo: </strong> {{infoTotal.marca}} 
+            </ion-item>
+            <ion-item>
+                <strong> Ano: </strong> {{infoTotal.ano}}
+            </ion-item>
+            <ion-item>
+                <strong> Placa: </strong> {{infoTotal.placa}}
+            </ion-item>
+            <ion-item>
+                    <strong> Preço: </strong> {{infoTotal.price}}
+            </ion-item>
+            <ion-item>
+                <ion-card>
+                    <div class="foto_carro"><img src = "{{infoTotal.foto}}" alt=""> </div>
+                </ion-card>
+            </ion-item>
+        </ion-list>
     </ion-grid>
       
 </ion-content>

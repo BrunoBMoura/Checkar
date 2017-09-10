@@ -202,7 +202,7 @@ var HomePage = (function () {
         var _this = this;
         var loader = this.loadingCtrl.create({
             content: "Procurando...",
-            duration: 8000
+            duration: 4000
         });
         loader.onDidDismiss(function () {
             _this.nav.push(__WEBPACK_IMPORTED_MODULE_2__showCar_showCar__["a" /* ShowCarPage */], _this.placa);
@@ -213,11 +213,12 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar color = \'dark\'>\n      <ion-title>\n        <div text-center>\n          <ion-icon name=\'md-car\' color = \'yellow\'></ion-icon>\n         <strong><font color="yellow">Checkcar</font></strong>\n        </div>\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  \n  <ion-content padding>\n    <form (ngSubmit) = "Search(placa)">\n    <ion-item>\n      <ion-label>\n        Placa do Veículo\n      </ion-label>\n      <ion-input type="text" [(ngModel)]="placa" name="placa" ></ion-input>\n    </ion-item>\n  \n    <div padding>\n      <button ion-button type="submit" class="button button-block button-positive"  color = dark >Procurar</button>\n    </div>\n    </form>\n  \n  </ion-content>\n  '/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar color = \'dark\'>\n      <ion-title>\n        <div text-center>\n          <ion-icon name=\'md-car\' color = \'yellow\'></ion-icon>\n         <strong><font color="yellow">Checkcar</font></strong>\n        </div>\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  \n  <ion-content padding>\n    <form (ngSubmit) = "Search(placa)">\n    <ion-item>\n      <ion-label>\n        Placa do Veículo\n      </ion-label>\n      <ion-input type="text" [(ngModel)]= "placa" name= "placa" ></ion-input>\n    </ion-item>\n  \n    <div padding>\n      <button ion-button type= "submit" class= "button button-block button-positive"  color = dark >Procurar</button>\n    </div>\n    </form>\n  \n  </ion-content>\n  '/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]) === "function" && _d || Object])
 ], HomePage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
@@ -257,25 +258,27 @@ var ShowCarPage = (function () {
     ShowCarPage.prototype.ionViewWillEnter = function () {
         var _this = this;
         this.carInfo.getInfo(this.placa).subscribe(function (info) {
-            console.log(info);
+            //console.log(info);
             _this.infoTotal = {
                 marca: info.brand,
                 ano: info.model_year,
                 placa: info.plate,
-                price: info.preco
+                price: info.preco,
+                foto: info.foto,
             };
-            console.log(_this.infoTotal);
+            console.log(_this.infoTotal.foto);
         });
     };
     return ShowCarPage;
 }());
 ShowCarPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-showCar',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/showCar/showCar.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Informações\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n      \n<ion-content padding>\n\n    <ion-grid *ngIf="infoTotal">\n      <ion-list>\n\n        <ion-item>\n            <strong> Modelo: </strong> {{infoTotal.marca}} \n        </ion-item>\n        <ion-item>\n            <strong> Ano: </strong> {{infoTotal.ano}}\n        </ion-item>\n        <ion-item>\n            <strong> Placa: </strong> {{infoTotal.placa}}\n        </ion-item>\n        <ion-item>\n                <strong> Preço: </strong> {{infoTotal.price}}\n        </ion-item>\n    \n    \n    </ion-list>\n    </ion-grid>\n      \n</ion-content>'/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/showCar/showCar.html"*/
+        selector: 'page-showCar',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/showCar/showCar.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Informações\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n      \n<ion-content padding>\n\n    <ion-grid *ngIf="infoTotal">\n        <ion-list>\n            <ion-item>\n                <strong> Modelo: </strong> {{infoTotal.marca}} \n            </ion-item>\n            <ion-item>\n                <strong> Ano: </strong> {{infoTotal.ano}}\n            </ion-item>\n            <ion-item>\n                <strong> Placa: </strong> {{infoTotal.placa}}\n            </ion-item>\n            <ion-item>\n                    <strong> Preço: </strong> {{infoTotal.price}}\n            </ion-item>\n            <ion-item>\n                <ion-card>\n                    <div class="foto_carro"><img src = "{{infoTotal.foto}}" alt=""> </div>\n                </ion-card>\n            </ion-item>\n        </ion-list>\n    </ion-grid>\n      \n</ion-content>'/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/showCar/showCar.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_carInfo_carInfo__["a" /* CarInfoProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_carInfo_carInfo__["a" /* CarInfoProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_carInfo_carInfo__["a" /* CarInfoProvider */]) === "function" && _c || Object])
 ], ShowCarPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=showCar.js.map
 
 /***/ }),
@@ -304,8 +307,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var CarInfoProvider = (function () {
     function CarInfoProvider(http) {
         this.http = http;
-        console.log('Hello CarInfoProvider Provider');
-        this.url = 'https://checkcarapp.herokuapp.com';
+        //console.log('Hello CarInfoProvider Provider');
+        this.url = 'http://flask-env.f7dpsf3jcd.us-east-1.elasticbeanstalk.com';
     }
     CarInfoProvider.prototype.getInfo = function (placaCarro) {
         return this.http.get(this.url + '/' + placaCarro).map(function (res) { return res.json(); });
@@ -314,9 +317,10 @@ var CarInfoProvider = (function () {
 }());
 CarInfoProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
 ], CarInfoProvider);
 
+var _a;
 //# sourceMappingURL=carInfo.js.map
 
 /***/ }),
@@ -340,14 +344,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var SettingsPage = (function () {
-    function SettingsPage(navCtrl) {
-        this.navCtrl = navCtrl;
+    function SettingsPage(nav) {
+        this.nav = nav;
+        this.nav = nav;
     }
     return SettingsPage;
 }());
 SettingsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-settings',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/settings/settings.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title> Settings </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <h2>Configurações</h2>\n  \n\n  </ion-content>\n  '/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/settings/settings.html"*/
+        selector: 'page-settings',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/settings/settings.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title> Configurações </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <ion-list>\n    </ion-list>\n  </ion-content>\n  '/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/settings/settings.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], SettingsPage);
@@ -428,7 +433,7 @@ AppModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */])
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */]),
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
         entryComponents: [

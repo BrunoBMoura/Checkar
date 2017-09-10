@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
-import { ShowCarPage } from '../showCar/showCar'
+import { ShowCarPage } from '../showCar/showCar';
 
 
 @Component({
@@ -42,7 +42,7 @@ export class HomePage {
   Loading() {
     let loader = this.loadingCtrl.create({
       content: "Procurando...",
-      duration: 8000
+      duration: 4000
     });
     loader.onDidDismiss(() => {
     		this.nav.push(ShowCarPage, this.placa);
@@ -50,7 +50,7 @@ export class HomePage {
     loader.present();
   }
 
-
+  
 }
 
 

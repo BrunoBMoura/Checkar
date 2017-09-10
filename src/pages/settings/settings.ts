@@ -7,8 +7,8 @@ import { NavController } from 'ionic-angular';
 })
 export class SettingsPage {
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(public nav: NavController) {
+    this.nav = nav;
   }
 
 }
