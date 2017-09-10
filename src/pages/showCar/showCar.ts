@@ -37,7 +37,6 @@ export class ShowCarPage {
           price : info.preco,
           foto : info.foto,
         }
-        console.log(this.infoTotal.foto);
     });
   }
   
