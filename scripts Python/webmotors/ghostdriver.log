@@ -1,0 +1,39 @@
+[INFO  - 2017-09-18T21:40:55.690Z] GhostDriver - Main - running on port 65146
+[INFO  - 2017-09-18T21:40:55.802Z] Session [0d3b9c30-9cba-11e7-82c2-39d6e7b484d9] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2017-09-18T21:40:55.802Z] Session [0d3b9c30-9cba-11e7-82c2-39d6e7b484d9] - page.customHeaders:  - {}
+[INFO  - 2017-09-18T21:40:55.802Z] Session [0d3b9c30-9cba-11e7-82c2-39d6e7b484d9] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2017-09-18T21:40:55.803Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 0d3b9c30-9cba-11e7-82c2-39d6e7b484d9
+[ERROR - 2017-09-18T21:40:58.790Z] Session [0d3b9c30-9cba-11e7-82c2-39d6e7b484d9] - page.onError - msg: Exception in queued GPT command TypeError: undefined is not a constructor (evaluating 'Math.trunc(Math.random() * 10)')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-09-18T21:40:58.790Z] Session [0d3b9c30-9cba-11e7-82c2-39d6e7b484d9] - page.onError - stack:
+  push (https://securepubads.g.doubleclick.net/gpt/pubads_impl_150.js:1)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-09-18T21:41:00.714Z] Session [0d3b9c30-9cba-11e7-82c2-39d6e7b484d9] - page.onError - msg: UNSPECIFIED_EVENT_TYPE_ERR: DOM Events Exception 0: The Event's type was not specified by initializing the event before the method was called.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-09-18T21:41:00.714Z] Session [0d3b9c30-9cba-11e7-82c2-39d6e7b484d9] - page.onError - stack:
+  dispatchEvent (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:8)
+  Gn (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:8)
+  tr (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:8)
+  Gi (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:8)
+  (anonymous function) (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:8)
+  __tryOrUnsub (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:10)
+  next (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:10)
+  _next (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:10)
+  next (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:10)
+  _next (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:10)
+  next (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:10)
+  _next (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:10)
+  next (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:10)
+  _next (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:10)
+  next (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:10)
+  checkIterators (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:11)
+  notifyNext (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:11)
+  _next (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:10)
+  next (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:10)
+  next (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:10)
+  (anonymous function) (https://assets.adobedtm.com/38f50c1843fcff2969948e7c3f86f917cec9c0b4/mbox-contents-08464d9bfd80728725957446cdb1c492bd630500.js:8)
+
+  phantomjs://platform/console++.js:263 in error
