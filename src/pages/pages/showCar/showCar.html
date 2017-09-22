@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Informações
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+      
+<ion-content padding class="content">
+
+    
+    <ion-grid *ngIf="infoTotal" class="grid">
+        <ion-list class="lista">
+
+            <ion-item class='carimage'>
+                <ion-card>
+                    <div class="foto_carro"><img src = "{{infoTotal.foto}}" alt=""> </div>
+                </ion-card>
+            </ion-item>
+
+            <ion-item class = "item1">
+                <strong class="modelo"> Modelo: </strong> {{infoTotal.marca}} 
+            </ion-item>
+            <ion-item class = "item2">
+                <strong class="ano"> Ano: </strong> {{infoTotal.ano}}
+            </ion-item>
+            <ion-item class = "item3">
+                <strong class="placa"> Placa: </strong> {{infoTotal.placa}}
+            </ion-item>
+            <ion-item class = "item4">
+                <strong class="preco"> Preço: </strong> {{infoTotal.price}} 
+            </ion-item>
+        </ion-list>
+        <div padding>
+            <form (ngSubmit) = "changePageToDiscounts()">
+                <ion-fab center>
+                    <button ion-fab icon-only class = "tabela" > 
+                        <ion-icon name = "clipboard" color="dark"></ion-icon>
+                   </button> 
+                </ion-fab>
+            </form>
+            <form (ngSubmit) = "changePageToCharts()">
+                <ion-fab left>
+                    <button ion-fab icon-only class = "historico">
+                        <ion-icon name = "stats" color="secondary"></ion-icon>
+                    </button>
+                </ion-fab>
+            </form>
+            <form (ngSubmit) = "SaveInfo()">
+                <ion-fab right> 
+                    <button ion-fab icon-only class = "favorito">
+                        <ion-icon name = "heart" color="vermelhoEscuro"></ion-icon>
+                    </button>
+                </ion-fab>
+            </form>
+                            
+        </div>
+
+    </ion-grid>    
+</ion-content>
