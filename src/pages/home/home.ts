@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
-import { NavParams } from 'ionic-angular';
 import { ShowCarPage } from '../showCar/showCar';
 import { SettingsPage } from "../settings/settings";
 import { FavoritesPage } from "../favorites/favorites"
@@ -19,7 +18,7 @@ export class HomePage {
   //flag : boolean;
   tabBarElement : any;
 
-  constructor(public nav: NavController,  private navParams: NavParams, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+  constructor(public nav: NavController, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
     this.nav = nav;
   }
 

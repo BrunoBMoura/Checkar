@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
 import { CarInfoProvider } from '../../providers/carInfo/carInfo';
-//import { HomePage } from "../home/home"
+import { ChartsPage } from "../charts/charts"
+import { DiscountsPage } from "../discounts/discounts"
+import { FavoritesPage } from "../favorites/favorites"
+
 
 @Component({
   selector: 'page-showCar',
@@ -16,15 +19,28 @@ export class ShowCarPage {
       ano   : string,
       placa : string,
       price : string,
-      foto  : string;
+      foto  : string,
+      saveplaca : string
     }
 
   constructor(private navController: NavController, private navParams: NavParams, private carInfo: CarInfoProvider) {
       this.displayInfo();
   }
 
+  SaveInfo(){
+    this.navController.push(FavoritesPage, this.infoTotal)
+  }
+
   displayInfo(){
     this.placa = this.navParams.data;
+  }
+
+  changePageToCharts(){
+    this.navController.push(ChartsPage);
+  }
+
+  changePageToDiscounts(){
+    this.navController.push(DiscountsPage);
   }
 
   ionViewWillEnter(){
@@ -36,6 +52,7 @@ export class ShowCarPage {
           placa : info.plate,
           price : info.preco,
           foto : info.foto,
+          saveplaca: this.placa
         }
     });
   }
