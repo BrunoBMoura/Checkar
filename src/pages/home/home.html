@@ -14,7 +14,7 @@
     <form (ngSubmit) = "Search(placa)" class="search">
       <!--criar uma borda nice -->
       <ion-item>
-        <ion-input placeholder="ABC1234" type="text" name= "placa" ></ion-input>
+        <ion-input placeholder="ABC1234" type="text" name= "placa" [(ngModel)]='placa'></ion-input>
       </ion-item>
       <div padding>
         <button ion-button type= "submit" class= "button button-block button-positive"  color = 'dark'>Procurar</button>

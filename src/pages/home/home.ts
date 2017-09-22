@@ -43,7 +43,7 @@ export class HomePage {
     this.placa = placa;
     let alert = this.alertCtrl.create({
       title: 'Placa a ser pesquisada:',
-      subTitle: placa,
+      subTitle: this.placa,
       buttons: [
       {
         text: 'OK',
@@ -59,14 +59,7 @@ export class HomePage {
   }
 
   Loading() {
-    let loader = this.loadingCtrl.create({
-      content: "Procurando...",
-      duration: 4000
-    });
-    loader.onDidDismiss(() => {
-    		this.nav.push(ShowCarPage, this.placa);
-  		});
-    loader.present();
+    	this.nav.push(ShowCarPage, this.placa);
   }
 
   
