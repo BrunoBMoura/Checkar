@@ -12,6 +12,8 @@ import { HomePage } from '../pages/home/home';
 import { SettingsPage } from '../pages/settings/settings'
 import { TabsPage } from '../pages/tabs/tabs';
 import { ShowCarPage } from '../pages/showCar/showCar'
+import { FavoritesPage } from '../pages/favorites/favorites'
+import { CameraPage } from '../pages/camera/camera'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,7 +27,9 @@ import { CarInfoProvider } from '../providers/carInfo/carInfo';
     HomePage,
     TabsPage,
     SettingsPage,
-    ShowCarPage
+    ShowCarPage,
+    FavoritesPage,
+    CameraPage,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import { CarInfoProvider } from '../providers/carInfo/carInfo';
     HomePage,
     TabsPage,
     SettingsPage,
-    ShowCarPage
+    ShowCarPage,
+    FavoritesPage,
+    CameraPage
   ],
   providers: [
     StatusBar,

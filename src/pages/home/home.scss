@@ -1,3 +1,23 @@
 page-home {
+     //background de imagem
+     .bg-image{
+        background-image: url('../assets/image/fundo7.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
 
+    //localizacao da procura da placa
+    .search{
+        margin-top: 110px;
+    }
+
+    //input
+    .item.item-input {
+        background-color: transparent;
+        width: 60%;
+        margin-right:auto; 
+        margin-left:auto
+        
+    }
 }

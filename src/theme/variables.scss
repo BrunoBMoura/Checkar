@@ -21,7 +21,7 @@ $colors: (
 
 ///IOS
 $toolbar-ios-background: color($colors, dark);//cor da barra de cima
-$tabs-ios-background: color($colors, dark);//cor da barra de baixo(ios)
+$tabs-ios-background: transparent;
 $tabs-ios-tab-icon-color: color($colors, light);//cor dos icones inferioes (ios)
 $tabs-ios-tab-color-active: color($colors, amarelo);//cor do icone selecionado
 $tabs-ios-tab-text-color: color($colors, light);//cor da fonte dos icones inferiores
@@ -31,7 +31,7 @@ $tabs-ios-tab-color: color($colors, light);//
 
 //
 $toolbar-md-background: color($colors, dark);//cor da barra de cima
-$tabs-md-background: color($colors, dark);//cor da barra de baixo
+$tabs-md-background: transparent;
 $tabs-md-tab-color-active: color($colors, amarelo);//cor do icone selecionado
 $tabs-md-tab-color: color($colors, light);//
 $tabs-md-tab-text-color: color($colors, light);//cor da fonte dos icones inferiores
