@@ -27,11 +27,11 @@
             <ion-item class = "item3">
                 <strong class="placa"> Placa: </strong> {{infoTotal.placa}}
             </ion-item>
-            <ion-item class = "item4">
+            <ion-item (click)="changePageToDiscounts()" class = "item4">
                 <strong class="preco"> Preço: </strong> {{infoTotal.price}} 
             </ion-item>
         </ion-list>
-        <div padding>
+        <!-- <div padding>
             <form (ngSubmit) = "changePageToDiscounts()">
                 <ion-fab center>
                     <button ion-fab icon-only class = "tabela" > 
@@ -54,7 +54,7 @@
                 </ion-fab>
             </form>
                             
-        </div>
+        </div> -->
 
     </ion-grid>    
 </ion-content>
