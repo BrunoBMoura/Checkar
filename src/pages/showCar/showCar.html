@@ -31,30 +31,23 @@
                 <strong class="preco"> Preço: </strong> {{infoTotal.price}} 
             </ion-item>
         </ion-list>
-        <!-- <div padding>
-            <form (ngSubmit) = "changePageToDiscounts()">
-                <ion-fab center>
-                    <button ion-fab icon-only class = "tabela" > 
-                        <ion-icon name = "clipboard" color="dark"></ion-icon>
-                   </button> 
-                </ion-fab>
-            </form>
-            <form (ngSubmit) = "changePageToCharts()">
-                <ion-fab left>
-                    <button ion-fab icon-only class = "historico">
-                        <ion-icon name = "stats" color="secondary"></ion-icon>
-                    </button>
-                </ion-fab>
-            </form>
-            <form (ngSubmit) = "SaveInfo()">
-                <ion-fab right> 
-                    <button ion-fab icon-only class = "favorito">
-                        <ion-icon name = "heart" color="vermelhoEscuro"></ion-icon>
-                    </button>
-                </ion-fab>
-            </form>
-                            
-        </div> -->
+        <div padding>
+            <ion-fab center>
+                <button ion-fab icon-only class = "tabela" (click)="changePageToDiscounts()"> 
+                    <ion-icon name = "clipboard" color="dark"></ion-icon>
+                </button> 
+            </ion-fab>
+            <ion-fab left>
+                <button ion-fab icon-only class = "historico" (click)="changePageToCharts()">
+                    <ion-icon name = "stats" color="secondary"></ion-icon>
+                </button>
+            </ion-fab>
+            <ion-fab right> 
+                <button ion-fab icon-only class = "favorito" (click)="SaveInfo()">
+                    <ion-icon name = "heart" color="vermelhoEscuro"></ion-icon>
+                </button>
+            </ion-fab>
+        </div>
 
     </ion-grid>    
 </ion-content>
