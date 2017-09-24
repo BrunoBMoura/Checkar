@@ -44,6 +44,31 @@ def info_cnw(marca, anoModelo):
 				for a in x:
 					print("http://www.carrosnaweb.com.br/" + a['href'])
 				print(soup.find('td', string = 'Ano').parent.findAll('a')[1].text) #preço
+				
+				#Início do código relacionado a depreciação do preço
+
+				codigo = re.findall(r'\d+', endereco)[0]
+				endereco2 = "http://www.carrosnaweb.com.br/preco.asp?codigo=" + codigo
+				print("Link historico de precos: " + endereco2)
+
+				try:
+					html2 = requests.get(endereco2)
+					text2 = html2.text
+					soup = BeautifulSoup(text2, "html5lib")
+					x = soup.findAll(src=re.compile('mainbar'))
+					l1 = [a.parent.text for a in x if not '%' in a.parent.text]
+					l2 = [a.parent.parent.previous_sibling.previous_sibling.text for a in x if not '%' in a.parent.text]
+					precos_str = [a.replace("\xa0R$ ", "") for a in l1]
+					anos = [int(a.replace("\n", "")) for a in l2]
+					precos = [float(a.replace(".", "")) for a in precos_str]
+					print(anos) #array com os anos para o gráfico
+					print(precos) #array com os preços para o gráfico
+
+				except urllib.error.HTTPError:
+					pass
+
+				#Fim do código relacionado a depreciação do preço
+				
 			except urllib.error.HTTPError:
 				pass
 		else:
