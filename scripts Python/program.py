@@ -55,6 +55,8 @@ def info_cnw(marca, anoModelo):
 					html2 = requests.get(endereco2)
 					text2 = html2.text
 					soup = BeautifulSoup(text2, "html5lib")
+					comments = soup.findAll(text=lambda text:isinstance(text, Comment))
+					[comment.extract() for comment in comments]
 					x = soup.findAll(src=re.compile('mainbar'))
 					l1 = [a.parent.text for a in x if not '%' in a.parent.text]
 					l2 = [a.parent.parent.previous_sibling.previous_sibling.text for a in x if not '%' in a.parent.text]
