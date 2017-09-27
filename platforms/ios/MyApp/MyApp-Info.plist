@@ -67,9 +67,9 @@
       <string>UIInterfaceOrientationPortrait</string>
     </array>
     <key>NSCameraUsageDescription</key>
-    <string></string>
+    <string/>
     <key>NSPhotoLibraryUsageDescription</key>
-    <string></string>
+    <string/>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string/>
   </dict>
