@@ -36,30 +36,32 @@ page-home {
         border: medium none;
 
         .text-input, {
-            color: #fff;
+            color: #f4f4f4;
             text-transform: uppercase;
+            text-align: center;
 		}
         input::-moz-placeholder  {
-            color: #fff!important;
+            color: #CAC8C8!important;
             text-align: center;
 		}
         input:-moz-placeholder {
-            color: #fff!important;
+            color: #CAC8C8!important;
             text-align: center;
 		}
         *::-webkit-input-placeholder  {
-            color: #fff!important;
+            color: #CAC8C8!important;
             text-align: center;
 		}
 
 		*:-ms-input-placeholder  {
-            color: #fff!important;
+            color: #CAC8C8!important;
             text-align: center;
 		}
 
 		*:-moz-placeholder  {
-            color: #fff!important;
+            color: #CAC8C8!important;
             text-align: center;
 		}
     }
+
 }
