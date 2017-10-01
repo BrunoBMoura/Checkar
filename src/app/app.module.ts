@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
-//import { IonicStorageModule } from '@ionic/storage';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { NavController } from 'ionic-angular';
 import { AboutPage } from '../pages/about/about';
@@ -36,7 +36,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    //IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -5,7 +5,7 @@ import { CarInfoProvider } from '../../providers/carInfo/carInfo';
 import { ChartsPage } from "../charts/charts"
 import { DiscountsPage } from "../discounts/discounts"
 import { FavoritesPage } from "../favorites/favorites"
-
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-showCar',
@@ -23,7 +23,11 @@ export class ShowCarPage {
       saveplaca : string
     }
 
-  constructor(private navController: NavController, private navParams: NavParams, private carInfo: CarInfoProvider) {
+  constructor(private navController: NavController,
+              private navParams: NavParams, 
+              private carInfo: CarInfoProvider, 
+              private storage: Storage) {
+
       this.displayInfo();
   }
 
@@ -43,9 +47,12 @@ export class ShowCarPage {
     this.navController.push(DiscountsPage);
   }
 
+  saveInfo(){
+    this.storage.set('primeiro', JSON.stringify(this.infoTotal));
+  }
+
   ionViewWillEnter(){
       this.carInfo.getInfo(this.placa).subscribe(info => {
-      //console.log(info);
         this.infoTotal = {
           marca: info.brand,
           ano : info.model_year,
@@ -57,4 +64,5 @@ export class ShowCarPage {
     });
   }
   
+
 }
