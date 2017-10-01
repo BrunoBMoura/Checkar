@@ -8,13 +8,18 @@ page-showCar{
     .lista, .grid, .carimage, .item1, .item2, .item3, .item4{
     	background-color: transparent;
     	border-color: transparent;
-        color: #FFFF00;
+        color: #f4f4f4;
     }
     .ano, .modelo, .placa, .preco{
-        color: #FFFFFF;
+        color: #FFC61A;
     }
     .favorito, .historico, .tabela{
     	background-color: transparent;
+    }
+    ion-card.card{
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
     }
 }
     

@@ -14,11 +14,13 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
-  amarelo:     #e8e811, 
+  amarelo:     #FFC61A, //amarelo do logo caceta
   amareloEscuro:     #909046,
-  green: #2ecc71,
+  green:  #2ecc71,
+  pretot: rgba(black, 0.2),
+  amarelot: rgba(#FFC619, 0.7),
+  brancot: rgba(#f4f4f4, 0.4),
 );
-
 
 ///IOS
 $toolbar-ios-background: color($colors, dark);//cor da barra de cima
@@ -27,8 +29,6 @@ $tabs-ios-tab-icon-color: color($colors, light);//cor dos icones inferioes (ios)
 $tabs-ios-tab-color-active: color($colors, amarelo);//cor do icone selecionado
 $tabs-ios-tab-text-color: color($colors, light);//cor da fonte dos icones inferiores
 $tabs-ios-tab-color: color($colors, light);//
-
-
 
 //
 $toolbar-md-background: color($colors, dark);//cor da barra de cima
