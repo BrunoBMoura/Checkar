@@ -6,8 +6,8 @@
     </ion-navbar>
 </ion-header>
       
-<ion-content class="cards-bg">
-        
+<ion-content  *ngFor = "let i of dataArray" class="cards-bg">
+     <!--    
     <ion-card>  
         <img src="http://www.mdesterro.com.br/public/imagens/racks02/foto2.jpg"/>
                 
@@ -25,27 +25,23 @@
         QUERO VER!
         </button>
     </ion-card>
-                
-    <ion-card>
-                
-        <div>
-        <img src={{this.carInfo.foto}}/>
-        </div>
+    -->
+    <ion-card>  
+        <img src={{i.foto}}/>
                 
         <ion-card-content>
         <ion-card-title>
-            {{this.carInfo.placa}}
+            {{i.placa}}
         </ion-card-title>
         <p>
-            Primeiro salvo.
+            {{i.marca}}
         </p>
         </ion-card-content>
                 
         <button ion-button clear block color="danger" icon-start>
-            <ion-icon name='cash'></ion-icon>
-            QUERO VER!
+        <ion-icon name='cash'></ion-icon>
+        QUERO VER!
         </button>
-                
-    </ion-card>
+    </ion-card> 
                 
 </ion-content>

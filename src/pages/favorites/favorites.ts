@@ -16,20 +16,28 @@ export class FavoritesPage {
       foto  : string,
       saveplaca : string
     }
-  cont : any = 0;
+  dataArray = [];
 
   constructor(public navCtrl: NavController, private navParams: NavParams, private storage: Storage) {
     this.navCtrl = navCtrl;
     this.carInfo = this.navParams.data;
   }
 
-  ionViewWillEnter(){
+  /*ionViewWillEnter(){
     this.storage.get('primeiro').then((val) => {
       if(val != null){
         this.carInfo = JSON.parse(val);
-      } else {
-        console.log("ERRO");
-      }
+      } 
     });
+  }*/
+
+  ionViewWillEnter(){
+
+    let value, aux : string;
+    this.storage.forEach((value) => {
+      aux = JSON.parse(value);
+      this.dataArray.push(aux);
+    });
+    console.log("Número de itens armazenados: ", this.storage.length());
   }
 }
