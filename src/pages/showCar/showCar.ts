@@ -31,10 +31,6 @@ export class ShowCarPage {
       this.displayInfo();
   }
 
-  SaveInfo(){
-    this.navController.push(FavoritesPage, this.infoTotal)
-  }
-
   displayInfo(){
     this.placa = this.navParams.data;
   }
@@ -49,10 +45,8 @@ export class ShowCarPage {
 
   saveInfo(){
 
-    this.storage.set('infoTotal.placa', JSON.stringify(this.infoTotal));
+    this.storage.set('this.infoTotal.placa', JSON.stringify(this.infoTotal));
     console.log("Inserido: ", this.infoTotal);
-    console.log("Tamanho do storage: ", this.storage.length());
-    console.log("Número de chaves: ", this.storage.keys())
   }
 
   ionViewWillEnter(){

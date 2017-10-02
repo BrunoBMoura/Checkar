@@ -6,7 +6,7 @@
     </ion-navbar>
 </ion-header>
       
-<ion-content  *ngFor = "let i of dataArray" class="cards-bg">
+<ion-content class="cards-bg">
      <!--    
     <ion-card>  
         <img src="http://www.mdesterro.com.br/public/imagens/racks02/foto2.jpg"/>
@@ -26,7 +26,7 @@
         </button>
     </ion-card>
     -->
-    <ion-card>  
+    <ion-card *ngFor = "let i of dataArray">  
         <img src={{i.foto}}/>
                 
         <ion-card-content>
