@@ -159,7 +159,7 @@ var ShowCarPage = (function () {
         this.navController.push(__WEBPACK_IMPORTED_MODULE_4__discounts_discounts__["a" /* DiscountsPage */]);
     };
     ShowCarPage.prototype.saveInfo = function () {
-        this.storage.set('this.infoTotal.placa', JSON.stringify(this.infoTotal));
+        this.storage.set(this.infoTotal.placa, JSON.stringify(this.infoTotal));
         console.log("Inserido: ", this.infoTotal);
     };
     ShowCarPage.prototype.ionViewWillEnter = function () {
@@ -181,10 +181,12 @@ ShowCarPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-showCar',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/showCar/showCar.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>\n\n            Informações\n\n        </ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n      \n\n<ion-content padding class="content">\n\n    <ion-grid *ngIf="infoTotal" class="grid">\n\n        \n\n        <ion-card>\n\n            <ion-list class="lista">\n\n                <ion-item class=\'carimage\'>\n\n                     <div class="foto_carro"><img src = "{{infoTotal.foto}}" alt=""> </div>\n\n                </ion-item>\n\n\n\n                <ion-item class = "item1">\n\n                    <strong class="modelo"> Modelo: </strong> {{infoTotal.marca}} \n\n                </ion-item>\n\n                <ion-item class = "item2">\n\n                    <strong class="ano"> Ano: </strong> {{infoTotal.ano}}\n\n                </ion-item>\n\n                <ion-item class = "item3">\n\n                    <strong class="placa"> Placa: </strong> {{infoTotal.placa}}\n\n                </ion-item>\n\n                <ion-item (click)="changePageToDiscounts()" class = "item4">\n\n                    <strong class="preco"> Preço: </strong> {{infoTotal.price}} \n\n                </ion-item>\n\n            </ion-list>\n\n        </ion-card>\n\n\n\n        <div padding>\n\n            <ion-fab center>\n\n                <button ion-fab icon-only class = "tabela" (click)="changePageToDiscounts()"> \n\n                    <ion-icon name = "clipboard" color="dark"></ion-icon>\n\n                </button> \n\n            </ion-fab>\n\n            <ion-fab left>\n\n                <button ion-fab icon-only class = "historico" (click)="changePageToCharts()">\n\n                    <ion-icon name = "stats" color="secondary"></ion-icon>\n\n                </button>\n\n            </ion-fab>\n\n            <ion-fab right> \n\n                <button ion-fab icon-only class = "favorito" (click)="saveInfo()">\n\n                    <ion-icon name = "heart" color="vermelhoEscuro"></ion-icon>\n\n                </button>\n\n            </ion-fab>\n\n        </div>\n\n\n\n    </ion-grid>    \n\n</ion-content>'/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/showCar/showCar.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_carInfo_carInfo__["a" /* CarInfoProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_carInfo_carInfo__["a" /* CarInfoProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_carInfo_carInfo__["a" /* CarInfoProvider */],
+        __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]])
 ], ShowCarPage);
 
-var _a, _b, _c, _d;
 //# sourceMappingURL=showCar.js.map
 
 /***/ }),
@@ -266,6 +268,8 @@ DiscountsPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__about_about__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__favorites_favorites__ = __webpack_require__(200);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -278,21 +282,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var SettingsPage = (function () {
-    function SettingsPage(nav) {
+    function SettingsPage(nav, storage) {
         this.nav = nav;
+        this.storage = storage;
         this.nav = nav;
     }
     SettingsPage.prototype.go2about = function () {
         this.nav.push(__WEBPACK_IMPORTED_MODULE_2__about_about__["a" /* AboutPage */]);
     };
+    SettingsPage.prototype.clearStorage = function () {
+        this.storage.clear();
+        this.nav.push(__WEBPACK_IMPORTED_MODULE_4__favorites_favorites__["a" /* FavoritesPage */]);
+    };
     return SettingsPage;
 }());
 SettingsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-settings',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/settings/settings.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title> \n        Configurações \n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <ion-list inset>\n      <ion-item (click)="go2about()">\n        <strong>Sobre</strong>\n      </ion-item>\n    </ion-list>\n  </ion-content>\n  '/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/settings/settings.html"*/
+        selector: 'page-settings',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/settings/settings.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title> \n        Configurações \n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <ion-list inset>\n      <ion-item (click)="go2about()">\n        <strong>Sobre</strong>\n      </ion-item>\n      <ion-item (click)="clearStorage()">\n        <strong>Clear\n        </strong>\n      </ion-item>\n    </ion-list>\n  </ion-content>\n  '/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/settings/settings.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]])
 ], SettingsPage);
 
 //# sourceMappingURL=settings.js.map
