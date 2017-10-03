@@ -44,8 +44,7 @@ export class ShowCarPage {
   }
 
   saveInfo(){
-
-    this.storage.set('this.infoTotal.placa', JSON.stringify(this.infoTotal));
+    this.storage.set(this.infoTotal.placa, JSON.stringify(this.infoTotal));
     console.log("Inserido: ", this.infoTotal);
   }
 

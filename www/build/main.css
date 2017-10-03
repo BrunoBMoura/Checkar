@@ -42923,6 +42923,10 @@ ion-navbar.toolbar {
   }
 }
 
+page-discounts .price {
+  padding-left: 50px;
+}
+
 page-home .bg-image {
   background-image: url("../assets/image/fundo7.jpg");
   background-repeat: no-repeat;
