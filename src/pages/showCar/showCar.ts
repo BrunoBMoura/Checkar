@@ -44,7 +44,10 @@ export class ShowCarPage {
   }
 
   saveInfo(){
+<<<<<<< HEAD
 
+=======
+>>>>>>> e91459d38f72d76c24724d2c4d64d2aa9299857c
     this.storage.set(this.infoTotal.placa, JSON.stringify(this.infoTotal));
     console.log("Inserido: ", this.infoTotal);
   }
