@@ -15,13 +15,10 @@ import { CameraPage } from '../camera/camera'
 
 export class HomePage {
   placa;
-  //flag : boolean;
-  tabBarElement : any;
 
   constructor(public nav: NavController, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
     this.nav = nav;
   }
-
 
   changePageToSettings(){
     this.nav.push(SettingsPage);
@@ -35,8 +32,6 @@ export class HomePage {
     this.nav.push(CameraPage);
   }
   
-
-
   Search(placa)
   {
     this.placa = placa;

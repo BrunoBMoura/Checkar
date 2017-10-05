@@ -23,16 +23,7 @@ export class FavoritesPage {
     this.carInfo = this.navParams.data;
   }
 
-  /*ionViewWillEnter(){
-    this.storage.get('primeiro').then((val) => {
-      if(val != null){
-        this.carInfo = JSON.parse(val);
-      } 
-    });
-  }*/
-
   ionViewWillEnter(){
-
     let value, aux : string;
     this.storage.forEach((value) => {
       aux = JSON.parse(value);
