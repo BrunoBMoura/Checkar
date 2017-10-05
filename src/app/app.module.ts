@@ -14,6 +14,7 @@ import { ShowCarPage } from '../pages/showCar/showCar'
 import { FavoritesPage } from '../pages/favorites/favorites'
 import { CameraPage } from '../pages/camera/camera'
 import { DiscountsPage } from '../pages/discounts/discounts'
+import { ChartsPage } from '../pages/charts/charts'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -31,6 +32,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     FavoritesPage,
     CameraPage,
     DiscountsPage,
+    ChartsPage,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     ShowCarPage,
     FavoritesPage,
     CameraPage,
-    DiscountsPage
+    DiscountsPage,
+    ChartsPage,
   ],
   providers: [
     StatusBar,
