@@ -10,9 +10,6 @@
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "io.ionic.starter"
         },
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "io.ionic.starter"
-        },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "io.ionic.starter"
         },
