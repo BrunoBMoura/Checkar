@@ -15,10 +15,7 @@ import { FavoritesPage } from '../pages/favorites/favorites'
 import { CameraPage } from '../pages/camera/camera'
 import { DiscountsPage } from '../pages/discounts/discounts'
 import { ChartsPage } from '../pages/charts/charts'
-<<<<<<< HEAD
 import { ShowFavPage } from '../pages/showFav/showFav'
-=======
->>>>>>> ea5c6ebdb7f380aecde02e83e26ad9b5c110c20d
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -37,10 +34,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     CameraPage,
     DiscountsPage,
     ChartsPage,
-<<<<<<< HEAD
     ShowFavPage,
-=======
->>>>>>> ea5c6ebdb7f380aecde02e83e26ad9b5c110c20d
   ],
   imports: [
     BrowserModule,
@@ -60,10 +54,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     CameraPage,
     DiscountsPage,
     ChartsPage,
-<<<<<<< HEAD
     ShowFavPage,
-=======
->>>>>>> ea5c6ebdb7f380aecde02e83e26ad9b5c110c20d
   ],
   providers: [
     StatusBar,
