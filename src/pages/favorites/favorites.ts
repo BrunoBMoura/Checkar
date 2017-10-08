@@ -33,6 +33,7 @@ export class FavoritesPage {
   }
 
   sendInfoToFav(i){
+    this.dataArray = [];
     this.navCtrl.push(ShowFavPage,i);
   }
 }
