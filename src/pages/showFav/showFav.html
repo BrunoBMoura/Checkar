@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Informações 
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+      
+<ion-content padding class="content">
+
+    <ion-grid *ngIf="info">
+            <ion-card>
+                    <ion-list class="lista">
+                        <ion-item class='carimage'>
+                             <div class="foto_carro"><img src = "{{info.foto}}" alt=""> </div>
+                        </ion-item>
+
+                        <ion-item class = "item1">
+                            <strong class="modelo"> Modelo: </strong> {{info.marca}} 
+                        </ion-item>
+                        <ion-item class = "item2">
+                            <strong class="ano"> Ano: </strong> {{info.ano}}
+                        </ion-item>
+                        <ion-item class = "item3">
+                            <strong class="placa"> Placa: </strong> {{info.placa}}
+                        </ion-item>
+                        <ion-item (click)="changePageToDiscounts()" class = "item4">
+                            <strong class="preco"> Preço: </strong> {{info.price}} 
+                        </ion-item>
+                    </ion-list>
+                </ion-card>
+    </ion-grid>
+</ion-content>

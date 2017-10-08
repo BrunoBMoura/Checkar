@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { ShowFavPage } from "../showFav/showFav"
 
 @Component({
   selector: 'page-favorites',
@@ -14,7 +15,6 @@ export class FavoritesPage {
       placa : string,
       price : string,
       foto  : string,
-      saveplaca : string
     }
   dataArray = [];
 
@@ -30,5 +30,9 @@ export class FavoritesPage {
       this.dataArray.push(aux);
     });
     console.log("Número de itens armazenados: ", this.dataArray);
+  }
+
+  sendInfoToFav(i){
+    this.navCtrl.push(ShowFavPage,i);
   }
 }

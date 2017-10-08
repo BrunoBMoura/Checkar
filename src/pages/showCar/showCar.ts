@@ -19,8 +19,7 @@ export class ShowCarPage {
       ano   : string,
       placa : string,
       price : string,
-      foto  : string,
-      saveplaca : string
+      foto  : string
     }
 
   constructor(private navController: NavController,
@@ -56,7 +55,6 @@ export class ShowCarPage {
           placa : info.plate,
           price : info.preco,
           foto : info.foto,
-          saveplaca: this.placa
         }
     });
   }

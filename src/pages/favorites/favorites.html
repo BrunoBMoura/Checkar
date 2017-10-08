@@ -37,11 +37,12 @@
             {{i.marca}}
         </p>
         </ion-card-content>
-                
+        <form (ngSubmit) = 'sendInfoToFav(i)'>       
         <button ion-button clear block color="danger" icon-start>
         <ion-icon name='cash'></ion-icon>
         QUERO VER!
         </button>
+        </form>
     </ion-card> 
                 
 </ion-content>
