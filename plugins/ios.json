@@ -26,11 +26,13 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "io.ionic.starter"
-        }
-    },
-    "dependent_plugins": {
+        },
+        "cordova-android-play-services-gradle-release": {
+            "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+        },
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "io.ionic.starter"
         }
-    }
+    },
+    "dependent_plugins": {}
 }

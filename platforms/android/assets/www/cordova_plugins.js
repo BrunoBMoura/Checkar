@@ -69,7 +69,8 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-compat": "1.1.0",
+    "cordova-android-play-services-gradle-release": "1.1.1",
+    "cordova-plugin-compat": "1.2.0",
     "cordova-plugin-camera": "2.4.1",
     "cordova-plugin-device": "1.1.4",
     "cordova-plugin-splashscreen": "4.0.3",
