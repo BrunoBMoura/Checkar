@@ -54,13 +54,14 @@
         }
     },
     "installed_plugins": {
+        "cordova-android-play-services-gradle-release": {
+            "PLAY_SERVICES_VERSION": "11.+",
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "io.ionic.starter"
         },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "io.ionic.starter"
-        },
-        "cordova-plugin-console": {
             "PACKAGE_NAME": "io.ionic.starter"
         },
         "cordova-plugin-device": {
@@ -148,9 +149,9 @@
         }
     ],
     "plugin_metadata": {
-        "cordova-plugin-compat": "1.1.0",
+        "cordova-android-play-services-gradle-release": "1.1.1",
+        "cordova-plugin-compat": "1.2.0",
         "cordova-plugin-camera": "2.4.1",
-        "cordova-plugin-console": "1.0.5",
         "cordova-plugin-device": "1.1.4",
         "cordova-plugin-splashscreen": "4.0.3",
         "cordova-plugin-statusbar": "2.2.2",
