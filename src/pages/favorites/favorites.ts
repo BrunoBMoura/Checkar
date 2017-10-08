@@ -29,7 +29,7 @@ export class FavoritesPage {
       aux = JSON.parse(value);
       this.dataArray.push(aux);
     });
-    console.log("Número de itens armazenados: ", this.dataArray);
+    console.log(this.storage.keys());
   }
 
   sendInfoToFav(i){

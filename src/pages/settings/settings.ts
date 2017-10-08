@@ -20,6 +20,5 @@ export class SettingsPage {
 
   clearStorage(){
     this.storage.clear();
-    this.nav.push(FavoritesPage);
   }
 }

@@ -29,5 +29,23 @@
                         </ion-item>
                     </ion-list>
                 </ion-card>
+
+                <div padding>
+                    <ion-fab center>
+                        <button ion-fab icon-only class = "tabela" (click)="changePageToDiscounts()"> 
+                            <ion-icon name = "clipboard" color="dark"></ion-icon>
+                        </button> 
+                    </ion-fab>
+                    <ion-fab left>
+                        <button ion-fab icon-only class = "historico" (click)="changePageToCharts()">
+                            <ion-icon name = "stats" color="secondary"></ion-icon>
+                        </button>
+                    </ion-fab>
+                    <ion-fab right> 
+                        <button ion-fab icon-only class = "favorito" (click)="deleteInfo()">
+                            <ion-icon name = "trash" color="vermelhoEscuro"></ion-icon>
+                        </button>
+                    </ion-fab>
+                </div>
     </ion-grid>
 </ion-content>
