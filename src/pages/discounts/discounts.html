@@ -15,8 +15,13 @@
             {{i.description}}
         </ion-card-content>
     </ion-card>
-    
-    <button ion-button full color="green" (click)="ready()">Já descontei tudo!</button>
+    <div padding>
+        <button ion-button full color="green" (click)="ready()">Já descontei tudo!</button>
+        <button ion-button icon-left type= "submit" class= "button button-block button-positive" color = 'dark'>
+            <ion-icon color = 'amarelo' name="print"></ion-icon>
+            Imprimir
+        </button>
+    </div>
 
     <ion-footer>
         <ion-toolbar color="light">

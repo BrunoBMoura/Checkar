@@ -42,24 +42,29 @@ page-home {
 		}
         input::-moz-placeholder  {
             color: #CAC8C8!important;
+            text-transform: none;
             text-align: center;
 		}
         input:-moz-placeholder {
             color: #CAC8C8!important;
+            text-transform: none;
             text-align: center;
 		}
         *::-webkit-input-placeholder  {
             color: #CAC8C8!important;
+            text-transform: none;
             text-align: center;
 		}
 
 		*:-ms-input-placeholder  {
             color: #CAC8C8!important;
+            text-transform: none;
             text-align: center;
 		}
 
 		*:-moz-placeholder  {
             color: #CAC8C8!important;
+            text-transform: none;
             text-align: center;
 		}
     }

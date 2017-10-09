@@ -11,13 +11,13 @@
 
 <ion-content padding class="bg-image">
 
-  <form (ngSubmit) = "Search(placa)" class="search">
+  <form (ngSubmit) = "Search(placa)">
     <ion-item>
       <!-- separar em entrada de texte e dps numerica -->
       <!-- <input type=number style="-webkit-text-security:disc;" ng-model="loginData.pincode"></input>-->
       <!-- <ion-input placeholder="ABC" type="text" pattern="[a-zA-Z]*" name= "placa" [(ngModel)]='placa'></ion-input> -->
       <!-- <ion-input placeholder="1234" type="number" pattern="[0-9]*" name= "placa" [(ngModel)]='placa'></ion-input> -->
-      <ion-input placeholder="PLACA" type="text" name= "placa" [(ngModel)]='placa'></ion-input>
+      <ion-input placeholder="Digite a placa" type="text" name= "placa" [(ngModel)]='placa'></ion-input>
     </ion-item>
     <div padding>
       <button ion-button icon-left type= "submit" class= "button button-block button-positive" color = 'dark'>
