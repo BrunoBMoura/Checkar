@@ -7,37 +7,22 @@
 </ion-header>
       
 <ion-content padding>
-    <ion-card>
+    <ion-card *ngFor = "let i of discountsArray" (press)="pressEvent($event, i)">
         <ion-card-header>
-              -R$500,00
+            -R${{i.value}}.00
         </ion-card-header>
         <ion-card-content>
-            Tá batido uai.
+            {{i.description}}
         </ion-card-content>
     </ion-card>
-    <ion-card>
-            <ion-card-header>
-                  -R$250,00
-            </ion-card-header>
-            <ion-card-content>
-                Não gostei do dono!
-            </ion-card-content>
-    </ion-card>
-    <ion-card>
-            <ion-card-header>
-                  -R$100,00
-            </ion-card-header>
-            <ion-card-content>
-                    Vai ser complicado de vender...
-            </ion-card-content>
-    </ion-card>
-    <button ion-button full color="green">Pronto!</button>
+    
+    <button ion-button full color="green" (click)="ready()">Já descontei tudo!</button>
 
     <ion-footer>
         <ion-toolbar color="light">
-            <div class='price'><strong><font color = "#2ecc71"> R$100.000,00 </font></strong></div>
+            <div class='price'><strong><font color = "#2ecc71"> R${{infoTotal.preco}} </font></strong></div>
             <ion-buttons end>
-                <button ion-button icon-right color="green">
+                <button ion-button icon-right color="green" (click)="createDiscount()">
                     <ion-icon name="add"></ion-icon>
                 </button>
             </ion-buttons>

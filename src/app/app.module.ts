@@ -16,6 +16,7 @@ import { CameraPage } from '../pages/camera/camera'
 import { DiscountsPage } from '../pages/discounts/discounts'
 import { ChartsPage } from '../pages/charts/charts'
 import { ShowFavPage } from '../pages/showFav/showFav'
+import { CreateDiscountPage } from '../pages/create-discount/create-discount'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -35,6 +36,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     DiscountsPage,
     ChartsPage,
     ShowFavPage,
+    CreateDiscountPage,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     DiscountsPage,
     ChartsPage,
     ShowFavPage,
+    CreateDiscountPage,
   ],
   providers: [
     StatusBar,

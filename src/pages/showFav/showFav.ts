@@ -17,6 +17,7 @@ export class ShowFavPage {
       placa : string,
       price : string,
       foto  : string,
+      descontos: string
     }
 
   constructor(private navController: NavController, private navParams: NavParams, private storage: Storage){
@@ -24,6 +25,7 @@ export class ShowFavPage {
   }
   Info(){
     this.info = this.navParams.data;
+    console.log(this.info)
   }
   
   changePageToCharts(){
@@ -31,7 +33,7 @@ export class ShowFavPage {
   }
 
   changePageToDiscounts(){
-    this.navController.push(DiscountsPage);
+    this.navController.push(DiscountsPage, this.info);
   }
 
   deleteInfo(){
