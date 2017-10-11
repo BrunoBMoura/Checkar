@@ -42927,6 +42927,13 @@ page-discounts .price {
   padding-left: 50px;
 }
 
+page-discounts .button {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  background: rgba(0, 0, 0, 0.1);
+}
+
 page-home .bg-image {
   background-image: url("../assets/image/fundo7.jpg");
   background-repeat: no-repeat;
@@ -42983,26 +42990,31 @@ page-home .item .text-input {
 
 page-home .item input::-moz-placeholder {
   color: #CAC8C8 !important;
+  text-transform: none;
   text-align: center;
 }
 
 page-home .item input:-moz-placeholder {
   color: #CAC8C8 !important;
+  text-transform: none;
   text-align: center;
 }
 
 page-home .item *::-webkit-input-placeholder {
   color: #CAC8C8 !important;
+  text-transform: none;
   text-align: center;
 }
 
 page-home .item *:-ms-input-placeholder {
   color: #CAC8C8 !important;
+  text-transform: none;
   text-align: center;
 }
 
 page-home .item *:-moz-placeholder {
   color: #CAC8C8 !important;
+  text-transform: none;
   text-align: center;
 }
 
