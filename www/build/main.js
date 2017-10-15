@@ -36,7 +36,6 @@ ChartsPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__create_discount_create_discount__ = __webpack_require__(103);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -46,143 +45,248 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
 
 
 var DiscountsPage = (function () {
-    function DiscountsPage(navParams, storage, navController, alertCtrl) {
+    function DiscountsPage(navCtrl, navParams, storage, navController, alertCtrl) {
+        this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.storage = storage;
         this.navController = navController;
         this.alertCtrl = alertCtrl;
-        this.discountsArray = [];
+        this.slides = [
+            {
+                title: "Lateral",
+                image: "../assets/image/pngs/lateral1.png",
+                id: 1
+            },
+            {
+                title: "Frente",
+                image: "../assets/image/pngs/frente1.png",
+                id: 2
+            },
+            {
+                title: "Traseira",
+                image: "../assets/image/pngs/traseira.png",
+                id: 3
+            },
+            {
+                title: "Teto",
+                image: "../assets/image/pngs/teto.png",
+            },
+            {
+                title: "Vidros",
+                image: "../assets/image/pngs/vidros.png",
+                id: 4
+            },
+            {
+                title: "Rodas",
+                image: "../assets/image/pngs/rodas.png",
+                id: 5
+            },
+            {
+                title: "Lanternas",
+                image: "../assets/image/pngs/lanternas.png",
+                id: 6
+            },
+            {
+                title: "Outros",
+                image: "../assets/image/pngs/semcor.png",
+                id: 7
+            }
+        ];
+        this.notes = [];
+        this.ids = [];
+        this.discounts = 0;
         this.aux = [];
         this.infoTotal = this.navParams.data;
+        this.navCtrl = navCtrl;
     }
     DiscountsPage.prototype.ionViewWillEnter = function () {
-        this.discountsArray = [];
+        this.notes = [];
+        this.aux = [];
+        this.ids = [];
         var i = 0;
         var instance;
+        var instance2;
+        this.originalPrice();
         if (this.infoTotal.descontos != "") {
             console.log(this.infoTotal.descontos);
-            this.aux = this.infoTotal.descontos.split(",");
+            if (this.infoTotal.descontos.search(/,/g) == -1) {
+                this.aux.push(this.infoTotal.descontos);
+            }
+            else {
+                this.aux = this.infoTotal.descontos.split(",");
+            }
             for (i = 0; i < this.aux.length; i++) {
-                instance = this.aux[i].split("$");
-                this.discountsArray.push({ "value": instance[0], "description": instance[1] });
+                instance = this.aux[i].split(";");
+                this.ids.push(parseInt(instance[0]));
+                instance2 = instance[1].split("$");
+                this.notes.push({ "price": +instance2[0], "description": instance2[1] });
+                this.discounts += +instance2[0];
             }
         }
     };
-    DiscountsPage.prototype.ready = function () {
-        this.navController.pop();
+    DiscountsPage.prototype.ionViewWillLeave = function () {
+        var i = 0;
+        var instance = "";
+        var virgula = ",";
+        if (this.notes.length != 0) {
+            instance = String(this.ids[0]) + ";" + String(this.notes[0]["price"]) + "$" + this.notes[0]["description"];
+        }
+        this.infoTotal.descontos = instance;
+        for (i = 1; i < this.notes.length; i++) {
+            instance = String(this.ids[i]) + ";" + String(this.notes[i]["price"]) + "$" + this.notes[i]["description"];
+            this.infoTotal.descontos = this.infoTotal.descontos.concat(virgula + instance);
+            console.log(this.infoTotal.descontos);
+            this.storage.set(this.infoTotal.placa, JSON.stringify(this.infoTotal));
+        }
+        console.log(this.infoTotal.descontos);
     };
-    DiscountsPage.prototype.createDiscount = function () {
-        this.navController.push(__WEBPACK_IMPORTED_MODULE_3__create_discount_create_discount__["a" /* CreateDiscountPage */], this.infoTotal);
+    DiscountsPage.prototype.originalPrice = function () {
+        this.inicialprice = +this.infoTotal.price.replace("R$ ", "").replace(".", "");
     };
-    DiscountsPage.prototype.pressEvent = function (e, i) {
+    DiscountsPage.prototype.editPrice = function () {
         var _this = this;
-        var alert = this.alertCtrl.create({
-            title: 'Deletar desconto?:',
-            subTitle: "-R$" + i.value + ",00",
+        var prompt = this.alertCtrl.create({
+            title: 'Editar Preço Inicial',
+            inputs: [
+                {
+                    placeholder: 'Preço',
+                    name: 'price',
+                    type: 'number'
+                }
+            ],
             buttons: [
                 {
-                    text: 'Sim',
-                    handler: function () {
-                        _this.deleteDiscount(i);
-                    }
+                    text: 'Cancelar'
                 },
                 {
-                    text: 'Não',
+                    text: 'Salvar',
+                    handler: function (data) {
+                        _this.inicialprice = data.price;
+                    }
                 }
             ]
         });
-        alert.present();
+        prompt.present();
     };
-    DiscountsPage.prototype.deleteDiscount = function (i) {
-        var uglify = i["value"] + "\\$" + i["description"];
-        var virgula = ",";
-        if (this.infoTotal.descontos.search(uglify) == 0)
-            virgula = "";
-        var final = (virgula + uglify).replace("\\", "");
-        this.infoTotal.descontos = this.infoTotal.descontos.replace(final, "");
-        console.log(this.infoTotal.descontos);
-        this.storage.set(this.infoTotal.placa, JSON.stringify(this.infoTotal));
+    DiscountsPage.prototype.addNote = function (id) {
+        var _this = this;
+        var prompt = this.alertCtrl.create({
+            title: 'Adicionar Item',
+            inputs: [
+                {
+                    placeholder: 'Descrição',
+                    name: 'description'
+                },
+                {
+                    placeholder: 'Preço',
+                    name: 'price',
+                    type: 'number'
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Cancelar'
+                },
+                {
+                    text: 'Adicionar',
+                    handler: function (data) {
+                        _this.notes.push(data);
+                        _this.ids.push(id);
+                        _this.discounts += +data.price;
+                    }
+                }
+            ]
+        });
+        prompt.present();
+    };
+    DiscountsPage.prototype.editNote = function (note) {
+        var _this = this;
+        var prompt = this.alertCtrl.create({
+            title: 'Editar Item',
+            inputs: [
+                {
+                    placeholder: 'Descrição',
+                    name: 'description'
+                },
+                {
+                    placeholder: 'Preço',
+                    name: 'price',
+                    type: 'number'
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Cancelar'
+                },
+                {
+                    text: 'Salvar',
+                    handler: function (data) {
+                        var index = _this.notes.indexOf(note);
+                        _this.discounts -= note.price;
+                        if (index > -1) {
+                            _this.notes[index] = data;
+                            _this.discounts += +data.price;
+                        }
+                    }
+                }
+            ]
+        });
+        prompt.present();
+    };
+    DiscountsPage.prototype.deleteNote = function (note) {
+        var index = this.notes.indexOf(note);
+        this.discounts -= +note.price;
+        if (index > -1) {
+            this.notes.splice(index, 1);
+            this.ids.splice(index, 1);
+        }
+    };
+    DiscountsPage.prototype.changeNote = function (event, note) {
+        var _this = this;
+        var prompt = this.alertCtrl.create({
+            title: 'Desconto',
+            subTitle: 'Editar ou excluir desconto?',
+            cssClass: 'alertChange',
+            buttons: [
+                {
+                    text: 'Editar',
+                    handler: function () {
+                        _this.editNote(note);
+                    }
+                },
+                {
+                    text: 'Excluir',
+                    handler: function () {
+                        _this.deleteNote(note);
+                    }
+                },
+                {
+                    text: 'Cancelar'
+                }
+            ]
+        });
+        prompt.present();
     };
     return DiscountsPage;
 }());
 DiscountsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'discounts',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/discounts/discounts.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>\n\n            Como está o carro?\n\n        </ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n      \n\n<ion-content padding>\n\n    <ion-card *ngFor = "let i of discountsArray" (press)="pressEvent($event, i)">\n\n        <ion-card-header>\n\n            -R${{i.value}}.00\n\n        </ion-card-header>\n\n        <ion-card-content>\n\n            {{i.description}}\n\n        </ion-card-content>\n\n    </ion-card>\n\n    <div padding>\n\n        <button ion-button full color="green" (click)="ready()">Já descontei tudo!</button>\n\n        <button ion-button icon-left type= "submit" class= "button button-block button-positive" color = \'dark\'>\n\n            <ion-icon color = \'amarelo\' name="print"></ion-icon>\n\n            Imprimir\n\n        </button>\n\n    </div>\n\n\n\n    <ion-footer>\n\n        <ion-toolbar color="light">\n\n            <div class=\'price\'><strong><font color = "#2ecc71"> R${{infoTotal.preco}} </font></strong></div>\n\n            <ion-buttons end>\n\n                <button ion-button icon-right color="green" (click)="createDiscount()">\n\n                    <ion-icon name="add"></ion-icon>\n\n                </button>\n\n            </ion-buttons>\n\n        </ion-toolbar>\n\n    </ion-footer>\n\n</ion-content>'/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/discounts/discounts.html"*/
+        selector: 'page-discounts',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/discounts/discounts.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>\n\n            Como está o carro?\n\n        </ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n    <ion-slides pager>\n\n        <ion-slide>\n\n            <h2 class="slide-title">Carro</h2>\n\n            <div class="ion-list-viewport">\n\n                <ion-list>\n\n                    <ion-item>\n\n                        <button ion-button clear item-start (click)="originalPrice()">\n\n                            <ion-icon name="refresh"></ion-icon>\n\n                        </button>\n\n                        Preço Inicial\n\n                        <ion-note item-end>\n\n                            R${{inicialprice}}\n\n                        </ion-note>\n\n                        <button ion-button clear item-end (click)="editPrice()">\n\n                            <ion-icon name="md-create"></ion-icon>\n\n                        </button>\n\n                    </ion-item>\n\n                </ion-list>\n\n            </div>\n\n        </ion-slide>\n\n        <ion-slide *ngFor="let slide of slides">\n\n            <h2 class="slide-title" [innerHTML]="slide.title"></h2>\n\n            <img [src]="slide.image" class="slide-image" />\n\n            <ion-scroll scrollY="true" style="height: 100px">\n\n                <ion-list>\n\n                    <ng-container *ngFor="let note of notes">\n\n                        <ion-item *ngIf="slide.id == ids[this.notes.indexOf(note)]" (press)="changeNote($event, note)">\n\n                            <!--<button ion-button clear item-start (click)="deleteNote(note)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>-->\n\n                            {{note.description}}\n\n                            <ion-note item-end>\n\n                                -R${{note.price}}\n\n                            </ion-note>\n\n                            <!--<button ion-button clear item-end (click)="editNote(note)">\n\n                                <ion-icon name="md-create"></ion-icon>\n\n                            </button>-->\n\n                        </ion-item>\n\n                    </ng-container>\n\n                </ion-list>\n\n            </ion-scroll>\n\n            <button ion-button clear icon-end (click)="addNote(slide.id)">\n\n                Adicionar Item\n\n            </button>\n\n        </ion-slide>\n\n        <ion-slide>\n\n            <h2 class="slide-title">Tabela de Descontos</h2>\n\n            <div class="ion-list-viewport">\n\n                <ion-list>\n\n                    <ion-item>\n\n                        Preço Inicial\n\n                        <ion-note item-end>\n\n                            R${{inicialprice}}\n\n                        </ion-note>\n\n                    </ion-item>\n\n                    <ion-item>\n\n                        Descontos\n\n                        <ion-note item-end>\n\n                            -R${{discounts}}\n\n                        </ion-note>\n\n                    </ion-item>\n\n                    <ion-item item-end>\n\n                        Preço Final\n\n                        <ion-note item-end>\n\n                            R${{inicialprice - discounts}}\n\n                        </ion-note>\n\n                    </ion-item>\n\n                </ion-list>\n\n            </div>\n\n            <button ion-button clear icon-end>\n\n                Gerar PDF\n\n                <ion-icon name="arrow-forward"></ion-icon>\n\n            </button>\n\n        </ion-slide>\n\n    </ion-slides>\n\n</ion-content>'/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/discounts/discounts.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
 ], DiscountsPage);
 
 //# sourceMappingURL=discounts.js.map
 
 /***/ }),
 
-/***/ 103:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateDiscountPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(28);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/**
- * Generated class for the CreateDiscountPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var CreateDiscountPage = (function () {
-    function CreateDiscountPage(navCtrl, navParams, storage) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.storage = storage;
-        this.infoTotal = this.navParams.data;
-    }
-    CreateDiscountPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad CreateDiscountPage');
-    };
-    CreateDiscountPage.prototype.ready = function () {
-        var virgula = ",";
-        if (this.infoTotal.descontos == "")
-            virgula = "";
-        this.infoTotal.descontos = this.infoTotal.descontos.concat(virgula + String(this.desconto) + "$" + this.descricao);
-        console.log(this.infoTotal.descontos);
-        this.storage.set(this.infoTotal.placa, JSON.stringify(this.infoTotal));
-        this.navCtrl.pop();
-    };
-    return CreateDiscountPage;
-}());
-CreateDiscountPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-create-discount',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/create-discount/create-discount.html"*/'<!--\n  Generated template for the CreateDiscountPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Criar Desconto</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <ion-list>\n        \n    <ion-item>\n        <ion-label fixed>Desconto</ion-label>\n    	<ion-input type="number" value="-R$"  [(ngModel)]="desconto"></ion-input>\n	</ion-item>\n        \n    <ion-item>\n        <ion-label fixed>Descrição</ion-label>\n        <ion-input type="text" [(ngModel)]="descricao"></ion-input>\n	</ion-item>\n	<button ion-button full color="green" (click)="ready()">Descontar!</button>\n        \n    </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/create-discount/create-discount.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
-], CreateDiscountPage);
-
-//# sourceMappingURL=create-discount.js.map
-
-/***/ }),
-
-/***/ 111:
+/***/ 110:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -195,11 +299,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 111;
+webpackEmptyAsyncContext.id = 110;
 
 /***/ }),
 
-/***/ 153:
+/***/ 152:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -219,22 +323,22 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 153;
+webpackAsyncContext.id = 152;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 196:
+/***/ 195:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__showCar_showCar__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__settings_settings__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__favorites_favorites__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__camera_camera__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__showCar_showCar__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__settings_settings__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__favorites_favorites__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__camera_camera__ = __webpack_require__(203);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -304,14 +408,14 @@ HomePage = __decorate([
 
 /***/ }),
 
-/***/ 197:
+/***/ 196:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShowCarPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_carInfo_carInfo__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_carInfo_carInfo__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__charts_charts__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__discounts_discounts__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(28);
@@ -349,11 +453,11 @@ var ShowCarPage = (function () {
         this.navController.push(__WEBPACK_IMPORTED_MODULE_4__discounts_discounts__["a" /* DiscountsPage */], this.infoTotal);
     };
     ShowCarPage.prototype.saveInfo = function () {
-        this.infoTotal.descontos = "";
+        //this.infoTotal.descontos="";
         this.storage.set(this.infoTotal.placa, JSON.stringify(this.infoTotal));
         console.log("Inserido: ", this.infoTotal);
     };
-    ShowCarPage.prototype.ionViewWillEnter = function () {
+    ShowCarPage.prototype.ionViewDidLoad = function () {
         var _this = this;
         this.carInfo.getInfo(this.placa).subscribe(function (info) {
             _this.infoTotal = {
@@ -382,13 +486,13 @@ ShowCarPage = __decorate([
 
 /***/ }),
 
-/***/ 198:
+/***/ 197:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarInfoProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(277);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -422,14 +526,14 @@ CarInfoProvider = __decorate([
 
 /***/ }),
 
-/***/ 200:
+/***/ 199:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__about_about__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__about_about__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -469,7 +573,7 @@ SettingsPage = __decorate([
 
 /***/ }),
 
-/***/ 201:
+/***/ 200:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -504,7 +608,7 @@ AboutPage = __decorate([
 
 /***/ }),
 
-/***/ 202:
+/***/ 201:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -512,7 +616,7 @@ AboutPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__showFav_showFav__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__showFav_showFav__ = __webpack_require__(202);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -562,7 +666,7 @@ FavoritesPage = __decorate([
 
 /***/ }),
 
-/***/ 203:
+/***/ 202:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -622,14 +726,14 @@ ShowFavPage = __decorate([
 
 /***/ }),
 
-/***/ 204:
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CameraPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(204);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -674,6 +778,65 @@ CameraPage = __decorate([
 
 /***/ }),
 
+/***/ 205:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateDiscountPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(28);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the CreateDiscountPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var CreateDiscountPage = (function () {
+    function CreateDiscountPage(navCtrl, navParams, storage) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.storage = storage;
+        this.infoTotal = this.navParams.data;
+    }
+    CreateDiscountPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CreateDiscountPage');
+    };
+    CreateDiscountPage.prototype.ready = function () {
+        var virgula = ",";
+        if (this.infoTotal.descontos == "")
+            virgula = "";
+        this.infoTotal.descontos = this.infoTotal.descontos.concat(virgula + String(this.desconto) + "$" + this.descricao);
+        console.log(this.infoTotal.descontos);
+        this.storage.set(this.infoTotal.placa, JSON.stringify(this.infoTotal));
+        this.navCtrl.pop();
+    };
+    return CreateDiscountPage;
+}());
+CreateDiscountPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-create-discount',template:/*ion-inline-start:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/create-discount/create-discount.html"*/'<!--\n  Generated template for the CreateDiscountPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Criar Desconto</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <ion-list>\n        \n    <ion-item>\n        <ion-label fixed>Desconto</ion-label>\n    	<ion-input type="number" value="-R$"  [(ngModel)]="desconto"></ion-input>\n	</ion-item>\n        \n    <ion-item>\n        <ion-label fixed>Descrição</ion-label>\n        <ion-input type="text" [(ngModel)]="descricao"></ion-input>\n	</ion-item>\n	<button ion-button full color="green" (click)="ready()">Descontar!</button>\n        \n    </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/buddhaistheanswer/Desktop/Checkar/src/pages/create-discount/create-discount.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
+], CreateDiscountPage);
+
+//# sourceMappingURL=create-discount.js.map
+
+/***/ }),
+
 /***/ 206:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -697,23 +860,23 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(268);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_about_about__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_about_about__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_contact_contact__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_settings_settings__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_showCar_showCar__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_favorites_favorites__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_camera_camera__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_settings_settings__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_showCar_showCar__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_favorites_favorites__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_camera_camera__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_discounts_discounts__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_charts_charts__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_showFav_showFav__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_create_discount_create_discount__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_status_bar__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_splash_screen__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_carInfo_carInfo__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_camera__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_showFav_showFav__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_create_discount_create_discount__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_status_bar__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_splash_screen__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_carInfo_carInfo__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_camera__ = __webpack_require__(204);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -808,9 +971,9 @@ AppModule = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(195);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);

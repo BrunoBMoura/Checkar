@@ -2,11 +2,71 @@ page-discounts{
     .price{
         padding-left: 50px;
     }
+
+    //.toolbar-background {
+        //background: #fff;
+        //border-color: transparent;
+    //}
     
-    .button{
-        width: 50%;
-        margin-right:auto;
-        margin-left:auto;
-        background: rgba(0, 0, 0, 0.1);
+    //.ion-list-viewport {
+        //max-height: 200px;
+        //width:100%;
+        //display:block !important;
+        //overflow:scroll !important;
+    //}
+    
+    .slide-title {
+        margin-top: 2.8rem;
     }
+
+    .swiper-pagination-bullet-active {
+        background: #ffc61a;
+    }
+
+    .button{
+        color: #ffc61a;
+    }
+
+    .item {
+        //margin-bottom: 10px;
+		//background: rgba(255, 255, 255, 0);
+        border: medium none;
+
+        .text-input, {
+            //color: #f4f4f4;
+            text-transform: uppercase;
+            text-align: center;
+		}
+        input::-moz-placeholder  {
+            //color: #CAC8C8!important;
+            text-align: center;
+		}
+        input:-moz-placeholder {
+            //color: #CAC8C8!important;
+            text-align: center;
+		}
+        *::-webkit-input-placeholder  {
+            //color: #CAC8C8!important;
+            text-align: center;
+		}
+
+		*:-ms-input-placeholder  {
+            //color: #CAC8C8!important;
+            text-align: center;
+		}
+
+		*:-moz-placeholder  {
+            //color: #CAC8C8!important;
+            text-align: center;
+		}
+    }
+
+    .alertChange{
+        background-color: white;
+        color: red;
+        button{
+            color: #ffc61a;
+        }
+    }
+
 }

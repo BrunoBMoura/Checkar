@@ -42927,11 +42927,54 @@ page-discounts .price {
   padding-left: 50px;
 }
 
+page-discounts .slide-title {
+  margin-top: 2.8rem;
+}
+
+page-discounts .swiper-pagination-bullet-active {
+  background: #ffc61a;
+}
+
 page-discounts .button {
-  width: 50%;
-  margin-right: auto;
-  margin-left: auto;
-  background: rgba(0, 0, 0, 0.1);
+  color: #ffc61a;
+}
+
+page-discounts .item {
+  border: medium none;
+}
+
+page-discounts .item .text-input {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+page-discounts .item input::-moz-placeholder {
+  text-align: center;
+}
+
+page-discounts .item input:-moz-placeholder {
+  text-align: center;
+}
+
+page-discounts .item *::-webkit-input-placeholder {
+  text-align: center;
+}
+
+page-discounts .item *:-ms-input-placeholder {
+  text-align: center;
+}
+
+page-discounts .item *:-moz-placeholder {
+  text-align: center;
+}
+
+page-discounts .alertChange {
+  background-color: white;
+  color: red;
+}
+
+page-discounts .alertChange button {
+  color: #ffc61a;
 }
 
 page-home .bg-image {

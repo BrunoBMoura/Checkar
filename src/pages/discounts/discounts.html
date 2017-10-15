@@ -5,32 +5,81 @@
         </ion-title>
     </ion-navbar>
 </ion-header>
-      
-<ion-content padding>
-    <ion-card *ngFor = "let i of discountsArray" (press)="pressEvent($event, i)">
-        <ion-card-header>
-            -R${{i.value}}.00
-        </ion-card-header>
-        <ion-card-content>
-            {{i.description}}
-        </ion-card-content>
-    </ion-card>
-    <div padding>
-        <button ion-button full color="green" (click)="ready()">Já descontei tudo!</button>
-        <button ion-button icon-left type= "submit" class= "button button-block button-positive" color = 'dark'>
-            <ion-icon color = 'amarelo' name="print"></ion-icon>
-            Imprimir
-        </button>
-    </div>
 
-    <ion-footer>
-        <ion-toolbar color="light">
-            <div class='price'><strong><font color = "#2ecc71"> R${{infoTotal.preco}} </font></strong></div>
-            <ion-buttons end>
-                <button ion-button icon-right color="green" (click)="createDiscount()">
-                    <ion-icon name="add"></ion-icon>
-                </button>
-            </ion-buttons>
-        </ion-toolbar>
-    </ion-footer>
+<ion-content padding>
+    <ion-slides pager>
+        <ion-slide>
+            <h2 class="slide-title">Carro</h2>
+            <div class="ion-list-viewport">
+                <ion-list>
+                    <ion-item>
+                        <button ion-button clear item-start (click)="originalPrice()">
+                            <ion-icon name="refresh"></ion-icon>
+                        </button>
+                        Preço Inicial
+                        <ion-note item-end>
+                            R${{inicialprice}}
+                        </ion-note>
+                        <button ion-button clear item-end (click)="editPrice()">
+                            <ion-icon name="md-create"></ion-icon>
+                        </button>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </ion-slide>
+        <ion-slide *ngFor="let slide of slides">
+            <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+            <img [src]="slide.image" class="slide-image" />
+            <ion-scroll scrollY="true" style="height: 100px">
+                <ion-list>
+                    <ng-container *ngFor="let note of notes">
+                        <ion-item *ngIf="slide.id == ids[this.notes.indexOf(note)]" (press)="changeNote($event, note)">
+                            <!--<button ion-button clear item-start (click)="deleteNote(note)">
+                                <ion-icon name="trash"></ion-icon>
+                            </button>-->
+                            {{note.description}}
+                            <ion-note item-end>
+                                -R${{note.price}}
+                            </ion-note>
+                            <!--<button ion-button clear item-end (click)="editNote(note)">
+                                <ion-icon name="md-create"></ion-icon>
+                            </button>-->
+                        </ion-item>
+                    </ng-container>
+                </ion-list>
+            </ion-scroll>
+            <button ion-button clear icon-end (click)="addNote(slide.id)">
+                Adicionar Item
+            </button>
+        </ion-slide>
+        <ion-slide>
+            <h2 class="slide-title">Tabela de Descontos</h2>
+            <div class="ion-list-viewport">
+                <ion-list>
+                    <ion-item>
+                        Preço Inicial
+                        <ion-note item-end>
+                            R${{inicialprice}}
+                        </ion-note>
+                    </ion-item>
+                    <ion-item>
+                        Descontos
+                        <ion-note item-end>
+                            -R${{discounts}}
+                        </ion-note>
+                    </ion-item>
+                    <ion-item item-end>
+                        Preço Final
+                        <ion-note item-end>
+                            R${{inicialprice - discounts}}
+                        </ion-note>
+                    </ion-item>
+                </ion-list>
+            </div>
+            <button ion-button clear icon-end>
+                Gerar PDF
+                <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+        </ion-slide>
+    </ion-slides>
 </ion-content>

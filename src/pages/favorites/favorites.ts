@@ -15,7 +15,7 @@ export class FavoritesPage {
       placa : string,
       price : string,
       foto  : string,
-      descontos: string //separados por ',' no estilo valor$descrição
+      descontos: string //separados por ',' no estilo id;valor$descrição
     }
   dataArray = [];
 

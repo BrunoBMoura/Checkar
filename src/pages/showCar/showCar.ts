@@ -44,12 +44,12 @@ export class ShowCarPage {
   }
 
   saveInfo(){
-    this.infoTotal.descontos="";
+    //this.infoTotal.descontos="";
     this.storage.set(this.infoTotal.placa, JSON.stringify(this.infoTotal));
     console.log("Inserido: ", this.infoTotal);
   }
 
-  ionViewWillEnter(){
+  ionViewDidLoad(){
       this.carInfo.getInfo(this.placa).subscribe(info => {
         this.infoTotal = {
           marca: info.brand,
