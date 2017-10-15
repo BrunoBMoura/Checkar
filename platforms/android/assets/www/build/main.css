@@ -42927,6 +42927,56 @@ page-discounts .price {
   padding-left: 50px;
 }
 
+page-discounts .slide-title {
+  margin-top: 2.8rem;
+}
+
+page-discounts .swiper-pagination-bullet-active {
+  background: #ffc61a;
+}
+
+page-discounts .button {
+  color: #ffc61a;
+}
+
+page-discounts .item {
+  border: medium none;
+}
+
+page-discounts .item .text-input {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+page-discounts .item input::-moz-placeholder {
+  text-align: center;
+}
+
+page-discounts .item input:-moz-placeholder {
+  text-align: center;
+}
+
+page-discounts .item *::-webkit-input-placeholder {
+  text-align: center;
+}
+
+page-discounts .item *:-ms-input-placeholder {
+  text-align: center;
+}
+
+page-discounts .item *:-moz-placeholder {
+  text-align: center;
+}
+
+page-discounts .alertChange {
+  background-color: white;
+  color: red;
+}
+
+page-discounts .alertChange button {
+  color: #ffc61a;
+}
+
 page-home .bg-image {
   background-image: url("../assets/image/fundo7.jpg");
   background-repeat: no-repeat;
@@ -42983,26 +43033,31 @@ page-home .item .text-input {
 
 page-home .item input::-moz-placeholder {
   color: #CAC8C8 !important;
+  text-transform: none;
   text-align: center;
 }
 
 page-home .item input:-moz-placeholder {
   color: #CAC8C8 !important;
+  text-transform: none;
   text-align: center;
 }
 
 page-home .item *::-webkit-input-placeholder {
   color: #CAC8C8 !important;
+  text-transform: none;
   text-align: center;
 }
 
 page-home .item *:-ms-input-placeholder {
   color: #CAC8C8 !important;
+  text-transform: none;
   text-align: center;
 }
 
 page-home .item *:-moz-placeholder {
   color: #CAC8C8 !important;
+  text-transform: none;
   text-align: center;
 }
 
@@ -43028,6 +43083,34 @@ page-showCar .favorito, page-showCar .historico, page-showCar .tabela {
 }
 
 page-showCar ion-card.card {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+page-showFav .content {
+  background-image: url("../assets/image/fundo7.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+page-showFav .lista, page-showFav .grid, page-showFav .carimage, page-showFav .item1, page-showFav .item2, page-showFav .item3, page-showFav .item4 {
+  background-color: transparent;
+  border-color: transparent;
+  color: #f4f4f4;
+}
+
+page-showFav .ano, page-showFav .modelo, page-showFav .placa, page-showFav .preco {
+  color: #FFC61A;
+}
+
+page-showFav .favorito, page-showFav .historico, page-showFav .tabela {
+  background-color: transparent;
+}
+
+page-showFav ion-card.card {
   -webkit-box-shadow: none;
   box-shadow: none;
   background: rgba(0, 0, 0, 0.3);

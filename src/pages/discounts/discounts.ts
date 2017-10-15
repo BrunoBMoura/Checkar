@@ -29,41 +29,41 @@ export class DiscountsPage {
 	slides = [
 		{
 			title: "Lateral",
-			image: "../assets/image/pngs/lateral1.png",
+			image: "assets/image/pngs/lateral1.png",
 			id: 1
 		},
 		{
 			title: "Frente",
-			image: "../assets/image/pngs/frente1.png",
+			image: "assets/image/pngs/frente1.png",
 			id: 2
 		},
 		{
 			title: "Traseira",
-			image: "../assets/image/pngs/traseira.png",
+			image: "assets/image/pngs/traseira.png",
 			id: 3
 		},
 		{
 			title: "Teto",
-			image: "../assets/image/pngs/teto.png",
+			image: "assets/image/pngs/teto.png",
 		},
 		{
 			title: "Vidros",
-			image: "../assets/image/pngs/vidros.png",
+			image: "assets/image/pngs/vidros.png",
 			id: 4
 		},
 		{
 			title: "Rodas",
-			image: "../assets/image/pngs/rodas.png",
+			image: "assets/image/pngs/rodas.png",
 			id: 5
 		},
 		{
 			title: "Lanternas",
-			image: "../assets/image/pngs/lanternas.png",
+			image: "assets/image/pngs/lanternas.png",
 			id: 6
 		},
 		{
 			title: "Outros",
-			image: "../assets/image/pngs/semcor.png",
+			image: "assets/image/pngs/semcor.png",
 			id: 7
 		}
 	];
