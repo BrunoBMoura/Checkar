@@ -6,6 +6,7 @@ import { ChartsPage } from "../charts/charts";
 import { DiscountsPage } from "../discounts/discounts";
 import { FavoritesPage } from "../favorites/favorites";
 import { Storage } from '@ionic/storage';
+import { LoadingController } from 'ionic-angular';
 
 @Component({
   selector: 'page-showCar',
@@ -26,7 +27,8 @@ export class ShowCarPage {
   constructor(private navController: NavController,
               private navParams: NavParams, 
               private carInfo: CarInfoProvider, 
-              private storage: Storage) {
+              private storage: Storage,
+              public loadingCtrl: LoadingController) {
 
       this.displayInfo();
   }
@@ -50,6 +52,11 @@ export class ShowCarPage {
   }
 
   ionViewDidLoad(){
+    
+    let loader = this.loadingCtrl.create({
+      content: "Uploading..."
+    });
+    loader.present();
       this.carInfo.getInfo(this.placa).subscribe(info => {
         this.infoTotal = {
           marca: info.brand,
@@ -60,7 +67,6 @@ export class ShowCarPage {
           descontos: ""
         }
     });
+    loader.dismiss();
   }
-  
-
 }

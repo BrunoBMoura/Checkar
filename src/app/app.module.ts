@@ -22,6 +22,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CarInfoProvider } from '../providers/carInfo/carInfo';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { HTTP } from '@ionic-native/http';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,11 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CarInfoProvider,
-    Camera
+    Camera,
+    FileTransfer,
+    FileTransferObject,
+    File,
+    HTTP,
   ]
 })
 export class AppModule {}

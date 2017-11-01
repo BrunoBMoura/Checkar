@@ -53,7 +53,7 @@ export class HomePage {
   }
 
   Loading() {
-    	this.nav.push(ShowCarPage, this.placa);
+    this.nav.push(ShowCarPage, this.placa);
   }
   
 }

@@ -7,5 +7,10 @@
 </ion-header>
       
 <ion-content padding>
-    <button ion-button color="light">Picture</button>
+    <ion-item>
+        <button ion-button color="secondary" (click)="getImage()">Get Image</button>
+    </ion-item>
+    <ion-item>
+        <button ion-button (click)="uploadFile()">Upload</button>
+    </ion-item>
 </ion-content>
