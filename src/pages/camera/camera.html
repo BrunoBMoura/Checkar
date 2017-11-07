@@ -8,9 +8,16 @@
       
 <ion-content padding>
     <ion-item>
-        <button ion-button color="secondary" (click)="getImage()">Get Image</button>
+        <button ion-button color="secondary" (click)="getImage()">Camera</button>
     </ion-item>
     <ion-item>
-        <button ion-button (click)="uploadFile()">Upload</button>
+        <button ion-button (click)="uploadFoto()">Galeria</button>
+    </ion-item>
+    
+    <ion-item>
+        <img src = "{{this.base64Image}}" *ngIf="{img: this.base64Image}">
+    </ion-item> 
+    <ion-item>
+        <button ion-button (click)="uploadFile()">Pesquisar Carro</button>
     </ion-item>
 </ion-content>

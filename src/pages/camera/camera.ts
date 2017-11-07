@@ -29,7 +29,7 @@ export class CameraPage {
 
   getImage() {
     const options: CameraOptions = {
-      quality: 100,
+      quality: 50,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       sourceType: this.camera.PictureSourceType.CAMERA
@@ -43,7 +43,22 @@ export class CameraPage {
       this.presentToast(err);
     });
   }
-
+  uploadFoto(){
+    const options: CameraOptions = {
+      quality: 50,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+    }
+  
+    this.camera.getPicture(options).then((imageData) => {
+      this.base64Image = imageData;
+      console.log(imageData)
+    }, (err) => {
+      console.log(err);
+      this.presentToast(err);
+    });
+  }
   uploadFile() {
     let loader = this.loadingCtrl.create({
       content: "Uploading..."
