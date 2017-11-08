@@ -27,14 +27,16 @@ export class CameraPage {
     this.plate = '';
   }
 
-  getImage() {
+  getPhoto() {
     const options: CameraOptions = {
-      quality: 50,
-      destinationType: this.camera.DestinationType.DATA_URL,
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
-      sourceType: this.camera.PictureSourceType.CAMERA
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      targetHeight: 1000,
+      targetWidth: 1000,
+      correctOrientation: true,
     }
-  
     this.camera.getPicture(options).then((imageData) => {
       this.base64Image = imageData;
       console.log(imageData)
@@ -43,14 +45,17 @@ export class CameraPage {
       this.presentToast(err);
     });
   }
-  uploadFoto(){
+
+  selectImage(){
     const options: CameraOptions = {
-      quality: 50,
-      destinationType: this.camera.DestinationType.DATA_URL,
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      correctOrientation: true,
+      targetHeight: 1000,
+      targetWidth: 1000,
     }
-  
     this.camera.getPicture(options).then((imageData) => {
       this.base64Image = imageData;
       console.log(imageData)
@@ -59,6 +64,7 @@ export class CameraPage {
       this.presentToast(err);
     });
   }
+
   uploadFile() {
     let loader = this.loadingCtrl.create({
       content: "Uploading..."
@@ -87,11 +93,9 @@ export class CameraPage {
       duration: 3000,
       position: 'bottom'
     });
-  
     toast.onDidDismiss(() => {
       console.log('Dismissed toast');
     });
-  
     toast.present();
   }
 }
