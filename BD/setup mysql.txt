@@ -1,0 +1,15 @@
+//instalando mysql
+brew install mysql
+brew services start mysql
+mysqladmin -u root password '123'
+
+//acessando mysql no terminal
+mysql -u root -p 
+->colocar senha
+
+//estando no mysql agora é só criar database
+
+create database teste
+use teste
+
+//agora pode dar todos os comandos de create table, selects, views etc
