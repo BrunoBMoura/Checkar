@@ -49,7 +49,7 @@
     <key>NSCameraUsageDescription</key>
     <string/>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string/>
+    <string>To locate you</string>
     <key>NSMainNibFile</key>
     <string/>
     <key>NSMainNibFile~ipad</key>

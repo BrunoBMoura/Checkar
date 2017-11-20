@@ -51,6 +51,10 @@
             {
               "xml": "<feature name=\"CordovaHttpPlugin\"><param name=\"ios-package\" value=\"CordovaHttpPlugin\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -72,6 +76,10 @@
           "NSLocationWhenInUseUsageDescription": [
             {
               "xml": "<string />",
+              "count": 1
+            },
+            {
+              "xml": "<string>To locate you</string>",
               "count": 1
             }
           ]
@@ -113,6 +121,10 @@
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "cordova-plugin-compat": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-geolocation": {
+      "GEOLOCATION_USAGE_DESCRIPTION": "To locate you",
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },
@@ -404,6 +416,38 @@
       "clobbers": [
         "cordova.plugin.http"
       ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.Coordinates",
+      "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "clobbers": [
+        "Coordinates"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.PositionError",
+      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "clobbers": [
+        "PositionError"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.Position",
+      "file": "plugins/cordova-plugin-geolocation/www/Position.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "clobbers": [
+        "Position"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.geolocation",
+      "file": "plugins/cordova-plugin-geolocation/www/geolocation.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "clobbers": [
+        "navigator.geolocation"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -417,6 +461,7 @@
     "cordova-plugin-file": "4.3.3",
     "cordova-plugin-file-transfer": "1.6.3",
     "cordova-plugin-advanced-http": "1.7.1",
-    "cordova-plugin-compat": "1.2.0"
+    "cordova-plugin-compat": "1.2.0",
+    "cordova-plugin-geolocation": "2.4.3"
   }
 }

@@ -286,6 +286,20 @@ module.exports = [
         "clobbers": [
             "cordova.plugin.http"
         ]
+    },
+    {
+        "id": "cordova-plugin-geolocation.geolocation",
+        "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+        "pluginId": "cordova-plugin-geolocation",
+        "clobbers": [
+            "navigator.geolocation"
+        ]
+    },
+    {
+        "id": "cordova-plugin-geolocation.PositionError",
+        "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+        "pluginId": "cordova-plugin-geolocation",
+        "runs": true
     }
 ];
 module.exports.metadata = 
@@ -301,7 +315,8 @@ module.exports.metadata =
     "ionic-plugin-keyboard": "2.2.1",
     "cordova-plugin-file": "4.3.3",
     "cordova-plugin-file-transfer": "1.6.3",
-    "cordova-plugin-advanced-http": "1.7.1"
+    "cordova-plugin-advanced-http": "1.7.1",
+    "cordova-plugin-geolocation": "2.4.3"
 };
 // BOTTOM OF METADATA
 });

@@ -25,6 +25,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { HTTP } from '@ionic-native/http';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { HTTP } from '@ionic-native/http';
     FileTransferObject,
     File,
     HTTP,
+    Geolocation,
   ]
 })
 export class AppModule {}

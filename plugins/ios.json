@@ -38,6 +38,10 @@
     },
     "cordova-plugin-advanced-http": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    },
+    "cordova-plugin-geolocation": {
+      "GEOLOCATION_USAGE_DESCRIPTION": "To locate you",
+      "PACKAGE_NAME": "io.ionic.starter"
     }
   },
   "dependent_plugins": {

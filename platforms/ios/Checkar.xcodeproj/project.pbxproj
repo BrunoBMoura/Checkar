@@ -38,6 +38,7 @@
 		9ABD6908022D40E0B8B45445 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E973FF3AB69439F86E69E25 /* AFURLSessionManager.m */; };
 		68F32C556D4E47BC8D67BF20 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB9982CF8B54F47910B3F05 /* Security.framework */; };
 		DF2528B8104145F3958F6DB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FB89FBC8064CFCAAC301B5 /* SystemConfiguration.framework */; };
+		08C1901AD63C41F9AF2D351D /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AD69ACB88945F793665E04 /* CDVLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,8 @@
 		1CC7828D74674DC8B16F0AF4 /* AFURLSessionManager.h */ = {isa = PBXFileReference; name = "AFURLSessionManager.h"; path = "cordova-plugin-advanced-http/AFURLSessionManager.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		8BB9982CF8B54F47910B3F05 /* Security.framework */ = {isa = PBXFileReference; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		96FB89FBC8064CFCAAC301B5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		72AD69ACB88945F793665E04 /* CDVLocation.m */ = {isa = PBXFileReference; name = "CDVLocation.m"; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		6AD6AD3F411042BDA56000BA /* CDVLocation.h */ = {isa = PBXFileReference; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +291,8 @@
 				4CFE77A3DCF34F92B35C8830 /* AFURLRequestSerialization.h */,
 				1E366BA0485F46AB9D1693DF /* AFURLResponseSerialization.h */,
 				1CC7828D74674DC8B16F0AF4 /* AFURLSessionManager.h */,
+				72AD69ACB88945F793665E04 /* CDVLocation.m */,
+				6AD6AD3F411042BDA56000BA /* CDVLocation.h */,
 			);
 			name = Plugins;
 			path = Checkar/Plugins;
@@ -435,6 +440,7 @@
 				C3384DA047424BC8AA8E0998 /* AFURLRequestSerialization.m in Sources */,
 				893DF06C6DCC4001AEFD3993 /* AFURLResponseSerialization.m in Sources */,
 				9ABD6908022D40E0B8B45445 /* AFURLSessionManager.m in Sources */,
+				08C1901AD63C41F9AF2D351D /* CDVLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

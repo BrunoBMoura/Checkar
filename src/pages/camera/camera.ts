@@ -3,6 +3,7 @@ import { NavController, LoadingController, ToastController } from 'ionic-angular
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { HTTP } from '@ionic-native/http';
+import { ShowCarPage } from '../showCar/showCar'
 
 @Component({
   selector: 'page-camera',
@@ -70,13 +71,13 @@ export class CameraPage {
       content: "Uploading..."
     });
     loader.present();
-    this.http.post('http://192.168.1.110:5000/image', {img: this.base64Image}, {})
+    this.http.post('http://192.168.1.107:5000/image', {img: this.base64Image}, {})
     .then(data => {
       loader.dismiss();
       this.presentToast(data.data); // data received by server
       this.plate = data.data.plate;
       console.log(data.headers);
-  
+      this.navCtrl.push(ShowCarPage, this.plate);
     })
     .catch(error => {
       loader.dismiss();

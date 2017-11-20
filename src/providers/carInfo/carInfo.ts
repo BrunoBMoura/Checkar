@@ -8,7 +8,7 @@ export class CarInfoProvider {
   url;
 
   constructor(public http: Http) {
-      this.url = 'https://checkcarapp.herokuapp.com';    
+      this.url = 'http://192.168.1.107:5000/placa';
   }
 
   getInfo(placaCarro){

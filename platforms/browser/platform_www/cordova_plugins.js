@@ -331,7 +331,8 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "2.2.2",
     "cordova-plugin-whitelist": "1.3.1",
     "ionic-plugin-keyboard": "2.2.1",
-    "cordova-plugin-advanced-http": "1.7.1"
+    "cordova-plugin-advanced-http": "1.7.1",
+    "cordova-plugin-geolocation": "2.4.3"
 }
 // BOTTOM OF METADATA
 });

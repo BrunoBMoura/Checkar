@@ -7,6 +7,7 @@ import { DiscountsPage } from "../discounts/discounts";
 import { FavoritesPage } from "../favorites/favorites";
 import { Storage } from '@ionic/storage';
 import { LoadingController } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @Component({
   selector: 'page-showCar',
@@ -28,6 +29,7 @@ export class ShowCarPage {
               private navParams: NavParams, 
               private carInfo: CarInfoProvider, 
               private storage: Storage,
+              private geolocation: Geolocation,
               public loadingCtrl: LoadingController) {
 
       this.displayInfo();
@@ -68,5 +70,11 @@ export class ShowCarPage {
         }
     });
     loader.dismiss();
+    this.geolocation.getCurrentPosition().then((resp) => {
+       console.log(resp.coords.latitude);
+       console.log(resp.coords.longitude);
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
   }
 }
