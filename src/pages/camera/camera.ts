@@ -31,7 +31,7 @@ export class CameraPage {
   getPhoto() {
     const options: CameraOptions = {
       quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       sourceType: this.camera.PictureSourceType.CAMERA,
       targetHeight: 1000,
@@ -50,7 +50,7 @@ export class CameraPage {
   selectImage(){
     const options: CameraOptions = {
       quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       correctOrientation: true,
@@ -74,10 +74,9 @@ export class CameraPage {
     this.http.post('http://192.168.1.107:5000/image', {img: this.base64Image}, {})
     .then(data => {
       loader.dismiss();
-      this.presentToast(data.data); // data received by server
-      this.plate = data.data.plate;
+      this.presentToast(JSON.parse(data.data).plate); // data received by server
       console.log(data.headers);
-      this.navCtrl.push(ShowCarPage, this.plate);
+      this.navCtrl.push(ShowCarPage, JSON.parse(data.data).plate);
     })
     .catch(error => {
       loader.dismiss();

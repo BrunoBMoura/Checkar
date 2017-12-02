@@ -8,6 +8,7 @@ import { FavoritesPage } from "../favorites/favorites";
 import { Storage } from '@ionic/storage';
 import { LoadingController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { HTTP } from '@ionic-native/http';
 
 @Component({
   selector: 'page-showCar',
@@ -23,14 +24,16 @@ export class ShowCarPage {
         price : string,
         foto  : string,
         descontos: string
-      }
+      };
+      infoToSend : {};
 
   constructor(private navController: NavController,
               private navParams: NavParams, 
               private carInfo: CarInfoProvider, 
               private storage: Storage,
               private geolocation: Geolocation,
-              public loadingCtrl: LoadingController) {
+              public loadingCtrl: LoadingController,
+              private http: HTTP) {
 
       this.displayInfo();
   }
@@ -68,11 +71,21 @@ export class ShowCarPage {
           foto: info.foto,
           descontos: ""
         }
-    });
+      });
     loader.dismiss();
     this.geolocation.getCurrentPosition().then((resp) => {
        console.log(resp.coords.latitude);
        console.log(resp.coords.longitude);
+       this.http.post('http://192.168.1.107:5000/geo', {lat: resp.coords.latitude, lon: resp.coords.longitude}, {})
+       .then(data => {
+         console.log(data.headers);
+       })
+       .catch(error => {
+         loader.dismiss();
+         console.log(error.status);
+         console.log(error.error); // error message as string
+         console.log(error.headers);
+       });
      }).catch((error) => {
        console.log('Error getting location', error);
      });
