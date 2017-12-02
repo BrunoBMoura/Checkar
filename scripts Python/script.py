@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from sinesp_client import SinespClient
 import urllib.request
 import json
@@ -17,9 +17,56 @@ import datetime
 import re
 from bs4 import BeautifulSoup, Comment
 from unidecode import *
+import base64
+import urllib.request
+
+import pymysql.cursors
 
 # EB looks for an 'application' callable by default.
 app = Flask(__name__)
+
+def insertCheck(placa, modelo, marca, bairro, cidade, estado,lat,lng,data):
+    # Connect to the database
+    connection = pymysql.connect(host='localhost',
+                             user='root',
+                             password='123',
+                             db='teste',
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+    try:
+        with connection.cursor() as cursor:
+            # Create a new record
+            sql = "INSERT INTO `CheckPos` (`placa`, `modelo`, `marca`, `bairro`, `cidade`, `estado`, `lat`, `lng`, `data`) VALUES (%s, %s,%s,%s,%s,%s,%s,%s,%s)"
+            cursor.execute(sql,(placa, modelo, marca, bairro, cidade, estado,lat,lng,data)) 
+        
+        # connection is not autocommit by default. So you must commit to save
+        # your changes.
+        connection.commit()
+    finally:
+        connection.close()
+
+def select(query):
+    connection = pymysql.connect(host='localhost',
+                             user='root',
+                             password='123',
+                             db='teste',
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+    try:
+        with connection.cursor() as cursor:
+            #select
+            sql = query
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            print(result)
+    finally:
+        connection.close()
+
+#para a funcao eh soh passar os parametros que quer inserir
+#insertCheck('BBB1236', 'GOL','VW','Santana','SJC','SP','12334342','-49954135','2017-11-15')
+#select("select * from CheckPos")
+
+############################################################################################
 
 def info_cnw(marca, anoModelo):
     separador = marca.find("/")
@@ -117,6 +164,11 @@ def get_task(placa):
     result['anos'] = consulta['anos']
     return jsonify(result)
 
+@app.route('/geo', methods=['POST'])
+def post_task():
+    print('WORKING!')
+    return(jsonify({'ok': 'deu bom'}))
+
 @app.route('/image', methods=['POST'])
 def task():
     image = request.form['img']
@@ -125,6 +177,8 @@ def task():
     response = requests.post(url, files=files)
     json_data = json.loads(response.text)
     return(jsonify({'plate':json_data['results'][0]['plate']}))
+
+#insertCheck('BBB1236', 'GOL','VW','Santana','SJC','SP','12334342','-49954135','2017-11-15')
 
 if __name__ == "__main__":
     app.debug = True
