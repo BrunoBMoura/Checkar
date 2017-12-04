@@ -26,6 +26,7 @@ import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { HTTP } from '@ionic-native/http';
 import { Geolocation } from '@ionic-native/geolocation';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

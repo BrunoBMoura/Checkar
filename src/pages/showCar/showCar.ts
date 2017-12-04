@@ -76,7 +76,7 @@ export class ShowCarPage {
     this.geolocation.getCurrentPosition().then((resp) => {
        console.log(resp.coords.latitude);
        console.log(resp.coords.longitude);
-       this.http.post('http://192.168.1.107:5000/geo', {lat: resp.coords.latitude, lon: resp.coords.longitude}, {})
+       this.http.post('http://172.21.219.244:5000/geo', {lat: resp.coords.latitude, lon: resp.coords.longitude}, {})
        .then(data => {
          console.log(data.headers);
        })
