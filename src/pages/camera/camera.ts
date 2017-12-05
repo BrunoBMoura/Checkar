@@ -3,7 +3,7 @@ import { NavController, LoadingController, ToastController } from 'ionic-angular
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { HTTP } from '@ionic-native/http';
-import { ShowCarPage } from '../showCar/showCar'
+import { ShowCarPage } from '../showCar/showCar';
 
 @Component({
   selector: 'page-camera',

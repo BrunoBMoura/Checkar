@@ -27,6 +27,7 @@ import { File } from '@ionic-native/file';
 import { HTTP } from '@ionic-native/http';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ChartsModule } from 'ng2-charts';
+import { Printer, PrintOptions } from '@ionic-native/printer';
 
 @NgModule({
   declarations: [

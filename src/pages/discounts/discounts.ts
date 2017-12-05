@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage';
 import { AlertController } from 'ionic-angular';
 import { Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
+import { Printer, PrintOptions } from '@ionic-native/printer';
 
 @Component({
 	selector: 'page-discounts',
@@ -21,7 +22,7 @@ export class DiscountsPage {
 		descontos: string	//discounts="id;price$description,id;price$description"
 	}
 
-	constructor(public navCtrl: NavController, private navParams: NavParams, private storage: Storage, private navController: NavController, public alertCtrl: AlertController) {
+	constructor(public navCtrl: NavController, private navParams: NavParams, private storage: Storage, private navController: NavController, public alertCtrl: AlertController, private printer: Printer) {
 		this.infoTotal = this.navParams.data;
 		this.navCtrl = navCtrl;
 	}
@@ -264,5 +265,29 @@ export class DiscountsPage {
 
 		prompt.present();
 
+	}
+
+	printInfo(){
+		var page = '<h1>Hello Document</h1>'; //page teste, dps colocar pra printar tudo
+
+		let options: PrintOptions = {
+			name: this.infoTotal.placa,
+			printerId: 'printer007',
+			duplex: true,
+			landscape: true,
+			grayscale: true
+	   	};
+
+		this.printer.isAvailable().then(function(){this.printer.print(page, options).then(function(){
+			alert("printing done successfully !");},function(){
+			alert("Error while printing !");
+			});}, function(){
+			alert("Error while printing !");
+		});
+		
+		/*this.printer.print(page, options).then(function(){
+			alert("printing done successfully !");},function(){
+			alert("Error while printing !");
+		});*/
 	}
 }
