@@ -15,7 +15,7 @@ export class ChartsPage {
     price : string,
     foto  : string,
     descontos: string,
-    anos: any[],
+    anos: Array<any>,
     precos: Array<string>
   }
 
@@ -27,6 +27,8 @@ export class ChartsPage {
   precos: any = [];
 
   ionViewWillLoad() {
+
+    console.log(this.info.anos);
 
     this.labelanos = [];
     this.precos = [];

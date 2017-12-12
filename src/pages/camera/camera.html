@@ -14,11 +14,8 @@
         <button ion-button full (click)="selectImage()">Galeria</button>
     </ion-item>
     <ion-item>
-        <button ion-button full (click)="uploadFile()" *ngIf="{img: this.base64Image}">Pesquisar</button>
-    </ion-item> 
-    <ion-card>
-        <img src = "{{this.base64Image}}" *ngIf="{img: this.base64Image}">
-    </ion-card>
+        <button ion-button full (click)="uploadFile()">Pesquisar</button>
+    </ion-item>
 
     
 </ion-content>

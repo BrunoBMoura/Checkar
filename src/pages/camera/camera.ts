@@ -70,16 +70,16 @@ export class CameraPage {
     let loader = this.loadingCtrl.create({
       content: "Uploading..."
     });
-    loader.present();
-    this.http.post('http://192.168.1.107:5000/image', {img: this.base64Image}, {})
+    loader.present()
+    this.http.post('http://172.21.219.210:5000/image', {img: this.base64Image}, {})
     .then(data => {
-      loader.dismiss();
+      loader.dismiss()
       this.presentToast(JSON.parse(data.data).plate); // data received by server
       console.log(data.headers);
       this.navCtrl.push(ShowCarPage, JSON.parse(data.data).plate);
     })
     .catch(error => {
-      loader.dismiss();
+      loader.dismiss()
       console.log(error.status);
       console.log(error.error); // error message as string
       console.log(error.headers);

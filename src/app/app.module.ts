@@ -77,6 +77,7 @@ import { Printer, PrintOptions } from '@ionic-native/printer';
     File,
     HTTP,
     Geolocation,
+    Printer
   ]
 })
 export class AppModule {}

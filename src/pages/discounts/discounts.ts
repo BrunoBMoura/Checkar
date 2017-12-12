@@ -268,26 +268,33 @@ export class DiscountsPage {
 	}
 
 	printInfo(){
-		var page = '<h1>Hello Document</h1>'; //page teste, dps colocar pra printar tudo
+		this.printer.isAvailable().then(this.onSuccessLoad, this.onErrorLoad);
+	
+	  }
+	
+	onSuccessLoad(){
+	let options: PrintOptions = {
+		name: 'MyDocument',
+		printerId: 'My Printer XYZ',
+		duplex: true,
+		landscape: true,
+		grayscale: true
+		};
 
-		let options: PrintOptions = {
-			name: this.infoTotal.placa,
-			printerId: 'printer007',
-			duplex: true,
-			landscape: true,
-			grayscale: true
-	   	};
 
-		this.printer.isAvailable().then(function(){this.printer.print(page, options).then(function(){
-			alert("printing done successfully !");},function(){
-			alert("Error while printing !");
-			});}, function(){
-			alert("Error while printing !");
-		});
-		
-		/*this.printer.print(page, options).then(function(){
-			alert("printing done successfully !");},function(){
-			alert("Error while printing !");
-		});*/
+		this.printer.print("http://google.com",options).then(this.onSuccessPrint, 
+		this.onErrorPrint); 
+	}
+
+	onErrorLoad(){
+		alert('Error : printing is unavailable on your device ');
+	}
+
+	onSuccessPrint(){
+		alert("printing done successfully !");
+	}
+
+	onErrorPrint(){
+		alert("Error while printing !");
 	}
 }

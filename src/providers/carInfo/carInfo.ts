@@ -8,7 +8,7 @@ export class CarInfoProvider {
   url;
 
   constructor(public http: Http) {
-    this.url = 'http://172.21.219.244:5000/placa';
+    this.url = 'http://172.21.219.210:5000/placa';
   }
 
   getInfo(placaCarro){
